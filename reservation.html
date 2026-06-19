@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бронирование — Кафе ТРАМ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:      #0B1A0B;
+  --forest-mid:  #162816;
+  --forest-rich: #1E3A1E;
+  --gold:        #C9A84C;
+  --gold-light:  #E2C97A;
+  --gold-dark:   #8B6914;
+  --cream:       #F5EDD8;
+  --text-muted:  rgba(245,237,216,0.5);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--forest); color: var(--cream); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--forest); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); }
+
+img { border-radius: 18px; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; background: rgba(11,26,11,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; letter-spacing: 8px; color: var(--gold); text-decoration: none; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.65; transition: opacity 0.3s, color 0.3s; }
+.nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold-light); }
+.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--forest); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
+.nav-reserve:hover { background: var(--gold-light); }
+.nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nav-burger span { display: block; width: 24px; height: 1px; background: var(--cream); }
+.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(11,26,11,0.98); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; letter-spacing: 6px; color: var(--cream); text-decoration: none; text-transform: uppercase; transition: color 0.3s; min-height: 44px; display: flex; align-items: center; touch-action: manipulation; }
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu-close { position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--cream); cursor: pointer; background: none; border: none; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* PAGE HERO */
+.page-hero { padding-top: 80px; height: 340px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--forest-mid); }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%); }
+.page-hero-deco { position: absolute; inset: 0; pointer-events: none; }
+.page-hero-deco::before, .page-hero-deco::after { content: ''; position: absolute; border: 1px solid rgba(201,168,76,0.12); }
+.page-hero-deco::before { inset: 24px 60px; }
+.page-hero-deco::after { inset: 36px 80px; opacity: 0.5; }
+.page-hero-bg-text { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: clamp(60px, 12vw, 150px); font-weight: 700; color: rgba(201,168,76,0.04); letter-spacing: 10px; user-select: none; white-space: nowrap; }
+.page-hero-content { position: relative; text-align: center; }
+.page-hero-label { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; letter-spacing: 6px; color: var(--cream); text-transform: uppercase; line-height: 1; }
+.page-hero-ornament { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 20px; }
+.orn-line { height: 1px; width: 60px; background: linear-gradient(to right, transparent, var(--gold)); }
+.orn-line.r { background: linear-gradient(to left, transparent, var(--gold)); }
+.orn-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
+
+/* RESERVATION BODY */
+.res-body { max-width: 1100px; margin: 0 auto; padding: 80px 60px 120px; }
+.res-grid { display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: start; }
+
+/* FORM */
+.res-form-wrap {}
+.res-form-label { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+.res-form-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 300; color: var(--cream); margin-bottom: 12px; }
+.res-form-sub { font-size: 14px; font-weight: 300; color: var(--text-muted); margin-bottom: 48px; line-height: 1.7; }
+
+form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group.full { grid-column: 1 / -1; }
+
+label { font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-muted); }
+
+input, select, textarea {
+  background: rgba(245,237,216,0.04);
+  border: 1px solid rgba(201,168,76,0.18);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 14px 18px;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+input::placeholder, textarea::placeholder { color: rgba(245,237,216,0.2); }
+input:focus, select:focus, textarea:focus { border-color: var(--gold); background: rgba(201,168,76,0.04); }
+select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+select option { background: var(--forest); color: var(--cream); }
+textarea { resize: vertical; min-height: 100px; }
+
+.form-submit {
+  margin-top: 12px;
+  background: var(--gold);
+  color: var(--forest);
+  border: none;
+  padding: 16px 48px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-self: flex-start;
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.form-submit:hover { background: var(--gold-light); }
+
+/* SUCCESS STATE */
+.form-success { display: none; text-align: center; padding: 60px 40px; border: 1px solid rgba(201,168,76,0.2); }
+.form-success.show { display: block; }
+.success-icon { font-size: 48px; margin-bottom: 20px; }
+.success-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--gold-light); margin-bottom: 12px; }
+.success-text { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+/* SIDEBAR */
+.res-sidebar {}
+.sidebar-block { border: 1px solid rgba(201,168,76,0.12); padding: 36px; margin-bottom: 24px; background: var(--forest-mid); }
+.sidebar-block-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--gold-light); margin-bottom: 20px; }
+.sidebar-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.07); }
+.sidebar-item:last-child { border-bottom: none; }
+.sidebar-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.sidebar-item-label { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.sidebar-item-value { font-size: 15px; font-weight: 300; color: var(--cream); }
+.sidebar-item-value a { color: var(--gold); text-decoration: none; }
+.sidebar-item-value a:hover { color: var(--gold-light); }
+
+.phone-cta { background: var(--gold); padding: 36px; text-align: center; }
+.phone-cta-label { font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: rgba(11,26,11,0.6); margin-bottom: 8px; }
+.phone-cta-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--forest); letter-spacing: 2px; }
+.phone-cta-num a { color: inherit; text-decoration: none; }
+.phone-cta-note { font-size: 12px; color: rgba(11,26,11,0.5); margin-top: 8px; }
+
+/* FOOTER */
+footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgba(201,168,76,0.1); }
+.footer-bottom-row { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 10px; color: var(--gold); text-transform: uppercase; }
+.footer-info { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.8; text-align: center; }
+.footer-info a { color: var(--gold); text-decoration: none; }
+.footer-nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer-nav a { font-size: 11px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+.footer-nav a:hover { color: var(--cream); }
+.footer-copy { font-size: 11px; color: rgba(245,237,216,0.2); max-width: 1100px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid rgba(201,168,76,0.06); letter-spacing: 1px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 18px 20px; }
+  .nav-links, .nav-reserve { display: none; }
+  .nav-burger { display: flex; }
+  .res-body { padding: 48px 20px 80px; }
+  .res-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  .page-hero-deco::before { inset: 16px 20px; }
+  footer { padding: 40px 20px 24px; }
+  .footer-bottom-row { flex-direction: column; align-items: flex-start; }
+  .form-submit { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" onclick="closeMobileMenu()">Главная</a>
+  <a href="menu.html" onclick="closeMobileMenu()">Меню</a>
+  <a href="about.html" onclick="closeMobileMenu()">О нас</a>
+  <a href="contacts.html" onclick="closeMobileMenu()">Контакты</a>
+  <a href="reservation.html" onclick="closeMobileMenu()">Бронирование</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Трам</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="menu.html">Меню</a></li>
+    <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:28px;">
+    <a href="reservation.html" class="nav-reserve active" style="background:var(--gold-dark);color:var(--cream);">Забронировать</a>
+    <div class="nav-burger" onclick="openMobileMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-deco"></div>
+  <div class="page-hero-bg-text">БРОНЬ</div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">Кафе ТРАМ · Зеленчукская</p>
+    <h1 class="page-hero-title">Бронирование</h1>
+    <div class="page-hero-ornament">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-diamond" style="width:3px;height:3px;opacity:0.4;"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line r"></div>
+    </div>
+  </div>
+</div>
+
+<div class="res-body">
+  <div class="res-grid">
+
+    <!-- FORM -->
+    <div class="reveal">
+      <span class="res-form-label">Забронировать стол</span>
+      <h2 class="res-form-title">Заполните заявку</h2>
+      <p class="res-form-sub">Мы свяжемся с вами в течение 30 минут для подтверждения. Также можно позвонить напрямую: <a href="tel:+79094963785" style="color:var(--gold);text-decoration:none;">8 (909) 496-37-85</a></p>
+
+      <form id="resForm" onsubmit="submitForm(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Дата *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Время *</label>
+            <select id="time" name="time" required>
+              <option value="" disabled selected>Выберите время</option>
+              <option>09:00</option><option>09:30</option>
+              <option>10:00</option><option>10:30</option>
+              <option>11:00</option><option>11:30</option>
+              <option>12:00</option><option>12:30</option>
+              <option>13:00</option><option>13:30</option>
+              <option>14:00</option><option>14:30</option>
+              <option>15:00</option><option>15:30</option>
+              <option>16:00</option><option>16:30</option>
+              <option>17:00</option><option>17:30</option>
+              <option>18:00</option><option>18:30</option>
+              <option>19:00</option><option>19:30</option>
+              <option>20:00</option><option>20:30</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Количество гостей *</label>
+            <select id="guests" name="guests" required>
+              <option value="" disabled selected>Выберите</option>
+              <option>1 гость</option>
+              <option>2 гостя</option>
+              <option>3 гостя</option>
+              <option>4 гостя</option>
+              <option>5 гостей</option>
+              <option>6 гостей</option>
+              <option>7 гостей</option>
+              <option>8 гостей</option>
+              <option>9 гостей</option>
+              <option>10 гостей</option>
+              <option>11–15 гостей</option>
+              <option>16–20 гостей</option>
+              <option>Более 20 гостей</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="zone">Зона</label>
+            <select id="zone" name="zone">
+              <option value="" disabled selected>Не важно</option>
+              <option>В зале</option>
+              <option>Домик</option>
+              <option>Беседка</option>
+              <option>На улице</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label for="comment">Пожелания</label>
+          <textarea id="comment" name="comment" placeholder="Особые пожелания, детское меню, предзаказ блюд..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Отправить заявку</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✓</div>
+        <div class="success-title">Заявка отправлена!</div>
+        <div class="success-text">Спасибо, <span id="successName"></span>.<br>Мы перезвоним вам в течение 30 минут для подтверждения.<br><br>Если не дождались — звоните сами:<br><a href="tel:+79094963785" style="color:var(--gold);">8 (909) 496-37-85</a></div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="reveal" style="transition-delay:0.2s;">
+      <div class="sidebar-block">
+        <div class="sidebar-block-title">Информация</div>
+        <div class="sidebar-item">
+          <span class="sidebar-icon">📍</span>
+          <div>
+            <div class="sidebar-item-label">Адрес</div>
+            <div class="sidebar-item-value">ул. Гагарина, 149<br>Зеленчукская, КЧР</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-icon">🕐</span>
+          <div>
+            <div class="sidebar-item-label">Режим работы</div>
+            <div class="sidebar-item-value">Ежедневно<br>9:00 — 22:00</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-icon">📞</span>
+          <div>
+            <div class="sidebar-item-label">Телефон</div>
+            <div class="sidebar-item-value"><a href="tel:+79094963785">8 (909) 496-37-85</a></div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-icon">🚗</span>
+          <div>
+            <div class="sidebar-item-label">Парковка</div>
+            <div class="sidebar-item-value">Бесплатная, рядом с кафе</div>
+          </div>
+        </div>
+        <div class="sidebar-item">
+          <span class="sidebar-icon">💳</span>
+          <div>
+            <div class="sidebar-item-label">Оплата</div>
+            <div class="sidebar-item-value">Наличные и карты</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-cta">
+        <div class="phone-cta-label">Позвоните нам</div>
+        <div class="phone-cta-num"><a href="tel:+79094963785">8 (909) 496-37-85</a></div>
+        <div class="phone-cta-note">Ежедневно 9:00 — 22:00</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom-row">
+    <span class="footer-logo">Трам</span>
+    <div class="footer-info">ул. Гагарина, 149 · Зеленчукская<br><a href="tel:+79094963785">8 (909) 496-37-85</a> · Ежедневно 9:00 — 22:00</div>
+    <nav class="footer-nav">
+      <a href="index.html">Главная</a>
+      <a href="menu.html">Меню</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+  <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(e => e.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); } }), { threshold: 0.08 });
+reveals.forEach(el => obs.observe(el));
+function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+/* Set min date to today */
+const dateInput = document.getElementById('date');
+const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth()+1).padStart(2,'0');
+const dd = String(today.getDate()).padStart(2,'0');
+dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+function submitForm(e) {
+  e.preventDefault();
+  const form = document.getElementById('resForm');
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const guests = document.getElementById('guests').value;
+
+  if (!name || !phone || !date || !time || !guests) {
+    const empties = form.querySelectorAll('[required]');
+    empties.forEach(el => { if (!el.value) el.style.borderColor='rgba(220,80,80,0.6)'; else el.style.borderColor=''; });
+    return;
+  }
+
+  form.style.display = 'none';
+  document.getElementById('successName').textContent = name;
+  document.getElementById('formSuccess').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

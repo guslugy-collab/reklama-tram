@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Select-Object FullName)",
+      "Bash(Format-Table -HideTableHeaders)",
+      "Bash(dir 'C:\\\\Users\\\\PK\\\\Downloads\\\\Telegram Desktop\\\\ChatExport_2026-06-16\\\\')",
+      "Bash(ls -la '/c/Users/PK/Downloads/Telegram Desktop/')",
+      "Bash(grep -oP '\\(?<=>\\)[^<]{3,}\\(?=<\\)')",
+      "Bash(grep -v '^\\\\s*$')",
+      "Bash(grep -oP '\\(?<=>\\)[^<]{5,}\\(?=<\\)')",
+      "Bash(cp '/c/Users/PK/Downloads/Telegram Desktop/photo_2026-06-10_05-50-48.jpg' '/c/Users/PK/Desktop/кафе трам/hero.jpg')",
+      "Bash(cp '/c/Users/PK/Downloads/Telegram Desktop/photo_2026-06-10_05-51-59.jpg' '/c/Users/PK/Desktop/кафе трам/photo1.jpg')",
+      "Bash(cp '/c/Users/PK/Downloads/Telegram Desktop/photo_2026-06-10_05-52-29.jpg' '/c/Users/PK/Desktop/кафе трам/photo2.jpg')",
+      "Bash(cp '/c/Users/PK/Downloads/Telegram Desktop/photo_2026-06-10_05-53-00.jpg' '/c/Users/PK/Desktop/кафе трам/photo3.jpg')",
+      "Bash(cp '/c/Users/PK/Downloads/Telegram Desktop/photo_2026-06-10_05-53-24.jpg' '/c/Users/PK/Desktop/кафе трам/photo4.jpg')",
+      "mcp__visualize__read_me",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(where node *)",
+      "Bash(xargs ls -lt)",
+      "Bash(find '/c/Users/PK/Pictures' -name \"*.jpg\" -o -name \"*.png\" 2>/dev/null | xargs ls -lt 2>/dev/null | head -10)",
+      "Bash(find '/c/Users/PK/AppData/Local/Temp' -name \"*.jpg\" -o -name \"*.png\" -o -name \"*.jpeg\" 2>/dev/null | xargs ls -lt 2>/dev/null | head -10)",
+      "Bash(find '/c/Users/PK' -name \"*2026-06-16*\" -o -name \"*16-19*\" 2>/dev/null | grep -v AppData | grep -v \".claude\" | head -20)",
+      "Bash(sort -t'/' -k8)",
+      "WebFetch(domain:bashnja-schastja.clients.site)",
+      "Bash(python -c ' *)",
+      "mcp__visualize__show_widget",
+      "Bash(awk '{print $5, $9}')"
+    ]
+  }
+}
