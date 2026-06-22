@@ -1166,6 +1166,21 @@ function sendOrderWhatsApp() {
     }
   });
 
+  document.querySelectorAll('.jam-item').forEach(function(item) {
+    var nameEl = item.querySelector('.jam-name');
+    var priceEl = item.querySelector('.jam-price');
+    if (!nameEl || !priceEl) return;
+    var name = 'Варенье ' + nameEl.textContent.trim();
+    var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+    if (!price) return;
+    var btn = document.createElement('button');
+    btn.className = 'add-to-cart'; btn.style.marginTop = '8px';
+    btn.setAttribute('aria-label', 'В корзину'); btn.innerHTML = '+';
+    btn.setAttribute('ontouchstart', '');
+    btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
+    item.appendChild(btn);
+  });
+
   document.querySelectorAll('.drink-card').forEach(function(card) {
     var nameEl = card.querySelector('.drink-card-name');
     if (!nameEl) return;
