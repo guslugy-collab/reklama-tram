@@ -1127,17 +1127,6 @@ function sendOrderWhatsApp() {
 
 // Добавить фото к категориям и кнопки "+" к блюдам
 (function() {
-  var catPhotos = { mangal: 'шашлык.jpg_opt.jpg', hychiny: 'фото с хычинами_opt.jpg', mains: 'жаркое с мясом_opt.jpg' };
-  Object.keys(catPhotos).forEach(function(id) {
-    var sec = document.getElementById(id);
-    if (!sec) return;
-    var hdr = sec.querySelector('.menu-cat-header');
-    if (!hdr) return;
-    var img = document.createElement('img');
-    img.src = catPhotos[id]; img.alt = ''; img.className = 'cat-photo'; img.loading = 'lazy';
-    hdr.insertAdjacentElement('afterend', img);
-  });
-
   document.querySelectorAll('.menu-item').forEach(function(item) {
     var nameEl = item.querySelector('.menu-item-name');
     var priceEl = item.querySelector('.menu-item-price') || item.querySelector('.size-price');
