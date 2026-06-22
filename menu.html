@@ -1144,17 +1144,23 @@ function sendOrderWhatsApp() {
 
   document.querySelectorAll('.drink-card').forEach(function(card) {
     var nameEl = card.querySelector('.drink-card-name');
-    var priceEl = card.querySelector('.drink-size-price');
-    if (!nameEl || !priceEl) return;
+    if (!nameEl) return;
     var name = nameEl.textContent.trim();
-    var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
-    if (!price) return;
-    var btn = document.createElement('button');
-    btn.className = 'add-to-cart'; btn.style.marginTop = '12px';
-    btn.setAttribute('aria-label', 'В корзину'); btn.innerHTML = '+';
-    btn.setAttribute('ontouchstart', '');
-    btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
-    card.appendChild(btn);
+    card.querySelectorAll('.drink-size-item').forEach(function(sizeItem) {
+      var labelEl = sizeItem.querySelector('.drink-size-label');
+      var priceEl = sizeItem.querySelector('.drink-size-price');
+      if (!priceEl) return;
+      var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+      if (!price) return;
+      var label = labelEl ? labelEl.textContent.trim() : '';
+      var fullName = label ? name + ' (' + label + ')' : name;
+      var btn = document.createElement('button');
+      btn.className = 'add-to-cart'; btn.style.marginTop = '6px';
+      btn.setAttribute('aria-label', 'В корзину'); btn.innerHTML = '+';
+      btn.setAttribute('ontouchstart', '');
+      btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(fullName, price);
+      sizeItem.appendChild(btn);
+    });
   });
 })();
 </script>
