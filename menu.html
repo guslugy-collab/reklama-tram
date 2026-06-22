@@ -374,6 +374,93 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   }
 }
 a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,0.25); }
+
+/* ─── ФОТО КАТЕГОРИЙ ─── */
+.cat-photo { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 28px; }
+@media (min-width: 768px) { .cat-photo { height: 260px; } }
+
+/* ─── КНОПКА + В КОРЗИНУ ─── */
+.add-to-cart {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--gold); color: var(--forest);
+  border: none; border-radius: 50%;
+  font-size: 22px; font-weight: 300; line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, transform 0.1s;
+}
+.add-to-cart:active { transform: scale(0.88); background: var(--gold-light); }
+
+/* ─── ФАБ КОРЗИНЫ ─── */
+.cart-fab {
+  position: fixed;
+  bottom: calc(36px + env(safe-area-inset-bottom));
+  left: 20px;
+  background: var(--gold); color: var(--forest);
+  border: none; border-radius: 28px;
+  padding: 0 20px; height: 52px;
+  display: none; align-items: center; gap: 10px;
+  font-family: 'Jost', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 1px;
+  cursor: pointer; z-index: 95;
+  box-shadow: 0 4px 24px rgba(201,168,76,0.4);
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s;
+}
+.cart-fab.visible { display: flex; }
+.cart-fab:active { transform: scale(0.95); }
+.cart-fab-count { background: var(--forest); color: var(--gold); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+
+/* ─── МОДАЛЬНАЯ КОРЗИНА ─── */
+.cart-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 200; }
+.cart-overlay.open { display: block; }
+
+.cart-sheet {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 201;
+  background: var(--forest-mid);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px 20px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+  max-height: 88vh; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+.cart-sheet.open { transform: translateY(0); }
+
+.cart-sheet-header {
+  position: sticky; top: 0; background: var(--forest-mid);
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cart-sheet-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); letter-spacing: 2px; }
+.cart-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+.cart-items { padding: 12px 24px; }
+.cart-empty { text-align: center; padding: 44px 24px; color: var(--text-muted); font-size: 14px; letter-spacing: 1px; }
+
+.cart-line { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(201,168,76,0.07); }
+.cart-line:last-child { border-bottom: none; }
+.cart-line-name { flex: 1; font-size: 15px; color: var(--cream); line-height: 1.3; }
+.cart-line-price { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); flex-shrink: 0; min-width: 68px; text-align: right; }
+
+.qty-ctrl { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+.qty-btn { background: rgba(201,168,76,0.12); border: none; color: var(--gold); width: 32px; height: 32px; border-radius: 8px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.qty-btn:active { background: rgba(201,168,76,0.28); }
+.qty-num { width: 28px; text-align: center; font-size: 15px; color: var(--cream); }
+
+.cart-total-row { padding: 16px 24px; border-top: 1px solid rgba(201,168,76,0.15); display: flex; justify-content: space-between; align-items: center; }
+.cart-total-label { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+.cart-total-sum { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--gold); }
+
+.cart-form { padding: 0 24px 12px; display: flex; flex-direction: column; gap: 10px; }
+.cart-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300; padding: 13px 16px; border-radius: 8px; outline: none; width: 100%; -webkit-appearance: none; }
+.cart-input::placeholder { color: var(--text-muted); }
+.cart-input:focus { border-color: rgba(201,168,76,0.5); }
+
+.cart-submit { margin: 4px 24px 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--gold); color: var(--forest); border: none; border-radius: 8px; min-height: 52px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: background 0.15s; }
+.cart-submit:active { background: var(--gold-light); transform: scale(0.98); }
 </style>
 </head>
 <body>
@@ -897,6 +984,37 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская</p>
 </footer>
 
+<!-- КОРЗИНА: плавающая кнопка -->
+<button class="cart-fab" id="cartFab" onclick="openCart()" aria-label="Корзина">
+  🛒 Корзина
+  <span class="cart-fab-count" id="cartCount">0</span>
+</button>
+
+<!-- КОРЗИНА: оверлей -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- КОРЗИНА: нижний лист -->
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-sheet-header">
+    <span class="cart-sheet-title">Корзина</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">Добавьте блюда из меню</div>
+  </div>
+  <div class="cart-total-row" id="cartTotalRow" style="display:none">
+    <span class="cart-total-label">Итого</span>
+    <span class="cart-total-sum" id="cartTotalSum">0 ₽</span>
+  </div>
+  <div class="cart-form" id="cartForm" style="display:none">
+    <input class="cart-input" id="cartName" type="text" placeholder="Ваше имя" autocomplete="name">
+    <input class="cart-input" id="cartPhone" type="tel" placeholder="Телефон" autocomplete="tel">
+  </div>
+  <button class="cart-submit" id="cartSubmit" style="display:none" onclick="sendOrderWhatsApp()">
+    Отправить заказ через WhatsApp
+  </button>
+</div>
+
 <script>
 
 function goTo(id, btn) {
@@ -928,6 +1046,128 @@ function closeMobileMenu() { document.getElementById('mobileMenu').classList.rem
 document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
   el.setAttribute('ontouchstart', '');
 });
+
+// ─── КОРЗИНА ───
+var cart = {};
+
+function addToCart(name, price) {
+  if (cart[name]) { cart[name].qty += 1; } else { cart[name] = { price: price, qty: 1 }; }
+  updateCartUI();
+  var fab = document.getElementById('cartFab');
+  fab.style.transform = 'scale(1.12)';
+  setTimeout(function() { fab.style.transform = ''; }, 160);
+}
+
+function changeQty(name, delta) {
+  if (!cart[name]) return;
+  cart[name].qty += delta;
+  if (cart[name].qty <= 0) delete cart[name];
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  var count = 0;
+  Object.keys(cart).forEach(function(k) { count += cart[k].qty; });
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartFab').classList.toggle('visible', count > 0);
+}
+
+function renderCartItems() {
+  var container = document.getElementById('cartItems');
+  var totalRow = document.getElementById('cartTotalRow');
+  var form = document.getElementById('cartForm');
+  var submit = document.getElementById('cartSubmit');
+  var keys = Object.keys(cart);
+  if (keys.length === 0) {
+    container.innerHTML = '<div class="cart-empty">Добавьте блюда из меню</div>';
+    totalRow.style.display = 'none'; form.style.display = 'none'; submit.style.display = 'none';
+    return;
+  }
+  var html = ''; var total = 0;
+  keys.forEach(function(name) {
+    var item = cart[name]; var line = item.price * item.qty; total += line;
+    var safe = name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    html += '<div class="cart-line"><div class="cart-line-name">' + name + '</div>'
+      + '<div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(\'' + safe + '\',-1)">−</button>'
+      + '<span class="qty-num">' + item.qty + '</span>'
+      + '<button class="qty-btn" onclick="changeQty(\'' + safe + '\',1)">+</button></div>'
+      + '<div class="cart-line-price">' + line + ' ₽</div></div>';
+  });
+  container.innerHTML = html;
+  document.getElementById('cartTotalSum').textContent = total + ' ₽';
+  totalRow.style.display = 'flex'; form.style.display = 'flex'; submit.style.display = 'flex';
+}
+
+function openCart() {
+  renderCartItems();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartSheet').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartSheet').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function sendOrderWhatsApp() {
+  var keys = Object.keys(cart);
+  if (!keys.length) return;
+  var name = (document.getElementById('cartName').value || '').trim();
+  var phone = (document.getElementById('cartPhone').value || '').trim();
+  var lines = []; var total = 0;
+  keys.forEach(function(k) { var i = cart[k]; lines.push(k + ' × ' + i.qty + ' = ' + (i.price * i.qty) + ' ₽'); total += i.price * i.qty; });
+  var text = 'Заказ из кафе ТРАМ:\n' + lines.join('\n') + '\n\nИтого: ' + total + ' ₽';
+  if (name) text += '\nИмя: ' + name;
+  if (phone) text += '\nТел: ' + phone;
+  window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text));
+}
+
+// Добавить фото к категориям и кнопки "+" к блюдам
+(function() {
+  var catPhotos = { mangal: 'шашлык.jpg_opt.jpg', hychiny: 'фото с хычинами_opt.jpg', mains: 'жаркое с мясом_opt.jpg' };
+  Object.keys(catPhotos).forEach(function(id) {
+    var sec = document.getElementById(id);
+    if (!sec) return;
+    var hdr = sec.querySelector('.menu-cat-header');
+    if (!hdr) return;
+    var img = document.createElement('img');
+    img.src = catPhotos[id]; img.alt = ''; img.className = 'cat-photo'; img.loading = 'lazy';
+    hdr.insertAdjacentElement('afterend', img);
+  });
+
+  document.querySelectorAll('.menu-item').forEach(function(item) {
+    var nameEl = item.querySelector('.menu-item-name');
+    var priceEl = item.querySelector('.menu-item-price') || item.querySelector('.size-price');
+    if (!nameEl || !priceEl) return;
+    var name = nameEl.textContent.trim();
+    var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+    if (!price || !name) return;
+    var btn = document.createElement('button');
+    btn.className = 'add-to-cart'; btn.setAttribute('aria-label', 'В корзину');
+    btn.innerHTML = '+'; btn.setAttribute('ontouchstart', '');
+    btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
+    var right = item.querySelector('.menu-item-right') || item.querySelector('.menu-item-top');
+    if (right) right.appendChild(btn);
+  });
+
+  document.querySelectorAll('.drink-card').forEach(function(card) {
+    var nameEl = card.querySelector('.drink-card-name');
+    var priceEl = card.querySelector('.drink-size-price');
+    if (!nameEl || !priceEl) return;
+    var name = nameEl.textContent.trim();
+    var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+    if (!price) return;
+    var btn = document.createElement('button');
+    btn.className = 'add-to-cart'; btn.style.marginTop = '12px';
+    btn.setAttribute('aria-label', 'В корзину'); btn.innerHTML = '+';
+    btn.setAttribute('ontouchstart', '');
+    btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
+    card.appendChild(btn);
+  });
+})();
 </script>
 </body>
 </html>
