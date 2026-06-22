@@ -771,7 +771,10 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <span class="special-badge">Для компании</span>
       <div class="menu-item-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold-light);">Карачаевское ассорти</div>
       <div class="menu-item-desc" style="font-style:italic;color:rgba(245,237,216,0.6);margin-top:8px;font-size:13px;line-height:1.7;">Мясо сушёное, къыйма, сохта, джерме, картофель по-деревенски, тузлук, аджика, лаваш, чайник чая, 3 салата на выбор</div>
-      <div style="margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);">4 000 ₽</div>
+      <div style="margin-top:16px;display:flex;align-items:center;gap:20px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);">4 000 ₽</span>
+        <button class="add-to-cart" ontouchstart="" onclick="addToCart('Карачаевское ассорти', 4000)" aria-label="В корзину">+</button>
+      </div>
     </div>
   </div>
 
