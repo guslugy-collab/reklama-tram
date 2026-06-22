@@ -1129,17 +1129,38 @@ function sendOrderWhatsApp() {
 (function() {
   document.querySelectorAll('.menu-item').forEach(function(item) {
     var nameEl = item.querySelector('.menu-item-name');
-    var priceEl = item.querySelector('.menu-item-price') || item.querySelector('.size-price');
-    if (!nameEl || !priceEl) return;
+    if (!nameEl) return;
     var name = nameEl.textContent.trim();
-    var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
-    if (!price || !name) return;
-    var btn = document.createElement('button');
-    btn.className = 'add-to-cart'; btn.setAttribute('aria-label', 'В корзину');
-    btn.innerHTML = '+'; btn.setAttribute('ontouchstart', '');
-    btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
-    var right = item.querySelector('.menu-item-right') || item.querySelector('.menu-item-top');
-    if (right) right.appendChild(btn);
+    if (item.classList.contains('multi')) {
+      // Хычины и другие блюда с размерами — кнопка на каждый размер
+      item.querySelectorAll('.size-col').forEach(function(col) {
+        var labelEl = col.querySelector('.size-label');
+        var priceEl = col.querySelector('.size-price');
+        if (!priceEl) return;
+        var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+        if (!price) return;
+        var label = labelEl ? labelEl.textContent.trim() : '';
+        var fullName = label ? name + ' (' + label + ')' : name;
+        var btn = document.createElement('button');
+        btn.className = 'add-to-cart'; btn.style.marginTop = '6px';
+        btn.setAttribute('aria-label', 'В корзину'); btn.innerHTML = '+';
+        btn.setAttribute('ontouchstart', '');
+        btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(fullName, price);
+        col.appendChild(btn);
+      });
+    } else {
+      // Обычные блюда — одна кнопка
+      var priceEl = item.querySelector('.menu-item-price');
+      if (!priceEl) return;
+      var price = parseInt(priceEl.textContent.replace(/\D/g, ''));
+      if (!price) return;
+      var btn = document.createElement('button');
+      btn.className = 'add-to-cart'; btn.setAttribute('aria-label', 'В корзину');
+      btn.innerHTML = '+'; btn.setAttribute('ontouchstart', '');
+      btn.onclick = (function(n, p) { return function() { addToCart(n, p); }; })(name, price);
+      var right = item.querySelector('.menu-item-right') || item.querySelector('.menu-item-top');
+      if (right) right.appendChild(btn);
+    }
   });
 
   document.querySelectorAll('.drink-card').forEach(function(card) {
