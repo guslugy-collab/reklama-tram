@@ -60,7 +60,7 @@ nav {
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold-light); }
 .nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--forest); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
 .nav-reserve:hover { background: var(--gold-light); }
-.nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: none; border: none; }
 .nav-burger span { display: block; width: 24px; height: 1px; background: var(--cream); }
 
 /* ─── MOBILE MENU ─── */
@@ -397,7 +397,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <li><a href="contacts.html">Контакты</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:28px;">
-    <div class="nav-burger" onclick="openMobileMenu()"><span></span><span></span><span></span></div>
+    <button class="nav-burger" onclick="openMobileMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </nav>
 

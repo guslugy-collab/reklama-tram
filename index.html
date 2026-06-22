@@ -198,6 +198,8 @@ nav.scrolled {
   min-height: 44px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  background: none;
+  border: none;
 }
 .nav-burger span {
   display: block;
@@ -1409,9 +1411,9 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <li><a href="contacts.html">Контакты</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:32px;">
-    <div class="nav-burger" onclick="openMobileMenu()">
+    <button class="nav-burger" onclick="openMobileMenu()" aria-label="Меню">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
 
