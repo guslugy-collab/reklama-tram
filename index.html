@@ -831,12 +831,16 @@ section { padding: 120px 60px; }
 .video-section { background: var(--forest); padding: 80px 0; }
 .video-wrap {
   margin-top: 48px;
-  max-width: 640px;
+  max-width: 420px;
   margin-left: auto; margin-right: auto;
   border-radius: 12px;
   border: 1px solid rgba(201,168,76,0.15);
   box-shadow: 0 8px 40px rgba(0,0,0,0.4);
   overflow: hidden;
+  /* сброс старых стилей от YouTube-вставки */
+  padding-bottom: 0;
+  height: auto;
+  position: static;
 }
 .video-wrap video {
   width: 100%; height: auto; display: block;
