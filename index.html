@@ -222,15 +222,16 @@ nav.scrolled {
 .hero-bg {
   position: absolute;
   top: 50%; left: 50%;
-  height: min(70vh, 600px);
+  height: min(54vh, 460px);
   aspect-ratio: 9 / 16;
   width: auto;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   border-radius: 18px;
   border: 1px solid rgba(201,168,76,0.25);
   box-shadow: 0 24px 70px rgba(0,0,0,0.55);
-  transform: translate(-50%, -50%) scale(1.05);
+  background: #000;
+  transform: translate(-50%, -50%) scale(1.02);
   opacity: 0;
   transition: transform 1.8s cubic-bezier(0.25,0.46,0.45,0.94), opacity 1.2s ease;
 }
@@ -238,7 +239,7 @@ nav.scrolled {
 .hero-overlay {
   position: absolute;
   top: 50%; left: 50%;
-  height: min(70vh, 600px);
+  height: min(54vh, 460px);
   aspect-ratio: 9 / 16;
   width: auto;
   transform: translate(-50%, -50%);
