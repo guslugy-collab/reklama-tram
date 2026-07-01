@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "cafe-tram",
-      "runtimeExecutable": "py",
+      "runtimeExecutable": "C:\\Users\\PK\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe",
       "runtimeArgs": ["-m", "http.server", "3000"],
       "port": 3000
     }
