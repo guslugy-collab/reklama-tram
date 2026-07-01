@@ -525,13 +525,20 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
 });
 
 /* Highlight today's row */
-const today = new Date().getDay();
+const now = new Date();
+const today = now.getDay();
+const hour = now.getHours();
+const isOpen = hour >= 9 && hour < 22;
 const rows = document.querySelectorAll('#hoursTable tr');
 rows.forEach(r => {
   if (parseInt(r.dataset.day) === today) {
     r.classList.add('today');
     const td = r.querySelector('td:last-child');
-    td.innerHTML += ' <span class="hours-open">Сейчас открыто</span>';
+    if (isOpen) {
+      td.innerHTML += ' <span class="hours-open">Сейчас открыто</span>';
+    } else {
+      td.innerHTML += ' <span class="hours-open" style="background:rgba(180,60,60,0.15);color:#e07070;">Сейчас закрыто</span>';
+    }
   }
 });
 </script>
