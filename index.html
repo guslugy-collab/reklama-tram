@@ -1131,6 +1131,46 @@ footer {
   color: rgba(245,237,216,0.7);
   font-weight: 400;
 }
+.footer-authors {
+  padding: 32px 0 28px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  margin-bottom: 24px;
+}
+.footer-authors-title {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(245,237,216,0.35);
+  margin-bottom: 16px;
+}
+.footer-authors-cards {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-author-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 10px 16px;
+  min-width: 200px;
+}
+.footer-author-avatar {
+  width: 36px; height: 36px;
+  background: rgba(201,168,76,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--gold); font-family: 'Cormorant Garamond', serif;
+  flex-shrink: 0;
+}
+.footer-author-name {
+  font-size: 12px; font-weight: 500; color: var(--cream); letter-spacing: 1px;
+}
+.footer-author-role {
+  font-size: 10px; color: rgba(245,237,216,0.4); letter-spacing: 1px; margin-top: 2px;
+}
 .footer-bottom {
   padding-top: 32px;
   display: flex;
@@ -1554,7 +1594,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
         <div class="about-stats reveal reveal-delay-3">
           <div class="about-stat">
             <span class="about-stat-num">5.0</span>
-            <span class="about-stat-label">Рейтинг</span>
+            <span class="about-stat-label">Яндекс.Рейтинг</span>
           </div>
           <div class="about-stat">
             <span class="about-stat-num">664</span>
@@ -1769,6 +1809,25 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
           <strong>Часы работы</strong><br>
           Ежедневно 9:00 — 22:00
         </p>
+      </div>
+    </div>
+    <div class="footer-authors">
+      <p class="footer-authors-title">Авторы проекта</p>
+      <div class="footer-authors-cards">
+        <div class="footer-author-card">
+          <div class="footer-author-avatar">А</div>
+          <div>
+            <div class="footer-author-name">Альберт</div>
+            <div class="footer-author-role">Владелец</div>
+          </div>
+        </div>
+        <a href="https://t.me/guide_tg_ads" target="_blank" style="text-decoration:none;" class="footer-author-card">
+          <div class="footer-author-avatar">T</div>
+          <div>
+            <div class="footer-author-name">@toolib09</div>
+            <div class="footer-author-role">Разработчик</div>
+          </div>
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
