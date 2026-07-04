@@ -1510,7 +1510,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-bg" id="heroBg" autoplay muted loop playsinline preload="auto">
+  <video class="hero-bg" id="heroBg" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="hero-poster.jpg">
     <source src="hero-v2-opt.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -1844,11 +1844,25 @@ if (heroBg.tagName === 'VIDEO') {
   heroBg.addEventListener('loadeddata', () => heroBg.classList.add('loaded'));
   heroBg.addEventListener('playing', () => heroBg.classList.add('loaded'));
   setTimeout(() => heroBg.classList.add('loaded'), 3000);
-  // iOS Safari требует явного вызова play()
-  heroBg.play().catch(() => {
+
+  // iOS Safari / энергосбережение: пробуем запустить, иначе — по первому касанию
+  function tryPlayHero() {
     heroBg.muted = true;
-    heroBg.play().catch(() => {});
-  });
+    heroBg.setAttribute('muted', '');
+    const p = heroBg.play();
+    if (p && p.catch) p.catch(() => {});
+  }
+  tryPlayHero();
+  // Если автозапуск заблокирован (Low Power Mode на iPhone) — стартуем от любого действия
+  const kick = () => {
+    tryPlayHero();
+    if (!heroBg.paused) {
+      ['touchstart','click','scroll','pointerdown'].forEach(ev =>
+        window.removeEventListener(ev, kick));
+    }
+  };
+  ['touchstart','click','scroll','pointerdown'].forEach(ev =>
+    window.addEventListener(ev, kick, { passive: true }));
 } else {
   setTimeout(() => heroBg.classList.add('loaded'), 100);
 }
