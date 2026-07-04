@@ -171,6 +171,47 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   .footer-bottom-row { flex-direction: column; align-items: flex-start; }
   .form-submit { width: 100%; text-align: center; }
 }
+
+@media (max-width: 480px) {
+  nav { padding: 14px 16px; }
+  .nav-logo { font-size: 20px; letter-spacing: 5px; }
+  .res-body { padding: 32px 16px 60px; }
+  .page-hero-title { font-size: clamp(2rem, 10vw, 3.5rem); letter-spacing: 6px; }
+  .res-form-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+  .sidebar-block { padding: 24px 16px; }
+  .phone-cta { padding: 24px 16px; }
+  .phone-cta-num { font-size: 22px; }
+  .footer-nav { gap: 16px; }
+  .form-submit { padding: 16px 24px; font-size: 11px; }
+  .mobile-menu a { font-size: 26px; letter-spacing: 4px; }
+}
+
+@media (max-width: 320px) {
+  nav { padding: 12px 12px; }
+  .nav-logo { font-size: 18px; letter-spacing: 4px; }
+  .res-body { padding: 24px 12px 48px; }
+  .page-hero-title { font-size: 1.8rem; letter-spacing: 4px; }
+  .res-form-title { font-size: 1.5rem; }
+  .sidebar-block { padding: 16px 12px; }
+  .form-group label { font-size: 9px; }
+  .mobile-menu a { font-size: 1.4rem; letter-spacing: 3px; }
+}
+
+@media (min-width: 1440px) {
+  nav { padding: 28px 80px; }
+  .res-body { padding: 80px 80px 120px; }
+  footer { padding: 80px 80px 48px; }
+}
+
+@media (hover: none) {
+  .form-submit:hover { background: var(--gold); }
+  .nav-links a:hover, .nav-reserve:hover,
+  .mobile-menu a:hover, .mobile-menu-close:hover,
+  .sidebar-item-value a:hover, .footer-nav a:hover {
+    background: unset; transform: none; opacity: unset; color: unset;
+  }
+  .form-submit:active { background: var(--gold-dark); }
+}
 </style>
 </head>
 <body>
