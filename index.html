@@ -1843,7 +1843,12 @@ const heroBg = document.getElementById('heroBg');
 if (heroBg.tagName === 'VIDEO') {
   heroBg.addEventListener('loadeddata', () => heroBg.classList.add('loaded'));
   heroBg.addEventListener('playing', () => heroBg.classList.add('loaded'));
-  setTimeout(() => heroBg.classList.add('loaded'), 3000); // запасной вариант
+  setTimeout(() => heroBg.classList.add('loaded'), 3000);
+  // iOS Safari требует явного вызова play()
+  heroBg.play().catch(() => {
+    heroBg.muted = true;
+    heroBg.play().catch(() => {});
+  });
 } else {
   setTimeout(() => heroBg.classList.add('loaded'), 100);
 }
