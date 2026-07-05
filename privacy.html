@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Документы и политика конфиденциальности — Кафе ТРАМ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:      #0B1A0B;
+  --forest-mid:  #162816;
+  --forest-rich: #1E3A1E;
+  --gold:        #C9A84C;
+  --gold-light:  #E2C97A;
+  --gold-dark:   #8B6914;
+  --cream:       #F5EDD8;
+  --text-muted:  rgba(245,237,216,0.5);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { background: var(--forest); color: var(--cream); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--forest); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); }
+a { color: var(--gold); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; background: rgba(11,26,11,0.97); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; letter-spacing: 8px; color: var(--gold); text-decoration: none; text-transform: uppercase; }
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.65; transition: opacity 0.3s, color 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--gold-light); }
+.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--forest); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
+.nav-reserve:hover { background: var(--gold-light); }
+.nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: none; border: none; }
+.nav-burger span { display: block; width: 24px; height: 1px; background: var(--cream); }
+.mobile-menu { display: none; position: fixed; inset: 0; background: rgba(11,26,11,0.98); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; letter-spacing: 6px; color: var(--cream); text-decoration: none; text-transform: uppercase; min-height: 44px; display: flex; align-items: center; touch-action: manipulation; }
+.mobile-menu-close { position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--cream); cursor: pointer; background: none; border: none; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+
+/* PAGE HERO */
+.page-hero { padding-top: 80px; height: 300px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--forest-mid); }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%); }
+.page-hero-bg-text { position: absolute; font-family: 'Cormorant Garamond', serif; font-size: clamp(50px, 12vw, 130px); font-weight: 700; color: rgba(201,168,76,0.04); letter-spacing: 10px; user-select: none; white-space: nowrap; }
+.page-hero-content { position: relative; text-align: center; padding: 0 20px; }
+.page-hero-label { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 6vw, 64px); font-weight: 300; letter-spacing: 4px; color: var(--cream); text-transform: uppercase; line-height: 1.1; }
+
+/* DOC BODY */
+.doc-body { max-width: 860px; margin: 0 auto; padding: 70px 40px 110px; }
+.doc-toc { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+.doc-toc a { font-size: 12px; letter-spacing: 1px; text-decoration: none; color: var(--cream); border: 1px solid rgba(201,168,76,0.22); padding: 10px 18px; border-radius: 4px; transition: background 0.3s, color 0.3s; }
+.doc-toc a:hover { background: var(--gold); color: var(--forest); }
+
+.doc-section { margin-bottom: 72px; scroll-margin-top: 100px; }
+.doc-section h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(24px, 3.6vw, 34px); color: var(--gold-light); letter-spacing: 1px; margin-bottom: 8px; }
+.doc-section .doc-law { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 28px; }
+.doc-section h3 { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 15px; letter-spacing: 1px; color: var(--cream); margin: 30px 0 10px; }
+.doc-section p, .doc-section li { font-size: 15px; line-height: 1.8; color: rgba(245,237,216,0.82); margin-bottom: 12px; }
+.doc-section ul, .doc-section ol { padding-left: 22px; margin-bottom: 12px; }
+.doc-section li { margin-bottom: 8px; }
+.doc-divider { height: 1px; background: rgba(201,168,76,0.14); margin: 0 0 72px; }
+
+/* Заглушка реквизитов — подсвечена, чтобы не забыть заменить */
+.fill { background: rgba(201,168,76,0.16); color: var(--gold-light); padding: 1px 6px; border-radius: 3px; font-weight: 500; white-space: nowrap; }
+
+.doc-note { border: 1px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.05); border-radius: 6px; padding: 22px 24px; font-size: 14px; line-height: 1.7; color: rgba(245,237,216,0.75); margin-bottom: 40px; }
+.doc-updated { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+
+/* FOOTER */
+footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgba(201,168,76,0.1); }
+.footer-bottom-row { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; letter-spacing: 10px; color: var(--gold); text-transform: uppercase; }
+.footer-info { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.8; text-align: center; }
+.footer-info a { color: var(--gold); text-decoration: none; }
+.footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-nav a { font-size: 11px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+.footer-nav a:hover { color: var(--cream); }
+.footer-copy { font-size: 11px; color: rgba(245,237,216,0.2); max-width: 1100px; margin: 28px auto 0; padding-top: 20px; border-top: 1px solid rgba(201,168,76,0.06); letter-spacing: 1px; }
+
+@media (max-width: 900px) {
+  nav { padding: 18px 20px; }
+  .nav-links, .nav-reserve { display: none; }
+  .nav-burger { display: flex; }
+  .doc-body { padding: 48px 20px 80px; }
+  footer { padding: 40px 20px 24px; }
+  .footer-bottom-row { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  nav { padding: 14px 16px; }
+  .nav-logo { font-size: 20px; letter-spacing: 5px; }
+  .doc-body { padding: 32px 16px 60px; }
+  .doc-section p, .doc-section li { font-size: 14px; }
+  .mobile-menu a { font-size: 26px; letter-spacing: 4px; }
+}
+@media (hover: none) {
+  .nav-links a:hover, .nav-reserve:hover, .doc-toc a:hover, .footer-nav a:hover { background: unset; transform: none; opacity: unset; color: unset; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+  <a href="index.html" onclick="closeMobileMenu()">Главная</a>
+  <a href="menu.html" onclick="closeMobileMenu()">Меню</a>
+  <a href="about.html" onclick="closeMobileMenu()">О нас</a>
+  <a href="contacts.html" onclick="closeMobileMenu()">Контакты</a>
+  <a href="reservation.html" onclick="closeMobileMenu()">Бронирование</a>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Трам</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Главная</a></li>
+    <li><a href="menu.html">Меню</a></li>
+    <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html">Контакты</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:28px;">
+    <a href="reservation.html" class="nav-reserve">Забронировать</a>
+    <button class="nav-burger" onclick="openMobileMenu()" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg-text">ДОКУМЕНТЫ</div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">Кафе ТРАМ · Зеленчукская</p>
+    <h1 class="page-hero-title">Документы</h1>
+  </div>
+</div>
+
+<div class="doc-body">
+
+  <!-- ⚠️ КАРКАС. Заменить все поля, подсвеченные жёлтым (класс .fill), на реальные реквизиты владельца кафе. -->
+  <div class="doc-note">
+    <strong>Оператор персональных данных:</strong>
+    <span class="fill">⟨ИП / ООО — полное наименование⟩</span>,
+    ОГРНИП/ОГРН <span class="fill">⟨номер⟩</span>,
+    ИНН <span class="fill">⟨номер⟩</span>,
+    адрес: <span class="fill">⟨юридический адрес⟩</span>,
+    e-mail: <span class="fill">⟨почта для обращений⟩</span>.
+    Сайт: <a href="https://cafe-tram.ru">https://cafe-tram.ru</a>.
+  </div>
+
+  <div class="doc-toc">
+    <a href="#policy">Политика конфиденциальности</a>
+    <a href="#consent-pd">Согласие на обработку данных</a>
+    <a href="#consent-ads">Согласие на рассылку</a>
+  </div>
+
+  <!-- ============ 1. ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ============ -->
+  <section class="doc-section" id="policy">
+    <h2>Политика конфиденциальности</h2>
+    <p class="doc-law">В соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных»</p>
+
+    <h3>1. Общие положения</h3>
+    <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта <a href="https://cafe-tram.ru">https://cafe-tram.ru</a> (далее — «Сайт»). Оператором персональных данных является <span class="fill">⟨ИП / ООО — наименование⟩</span> (далее — «Оператор»).</p>
+    <p>Используя Сайт и оставляя свои данные в формах, Пользователь подтверждает согласие с условиями настоящей Политики.</p>
+
+    <h3>2. Какие данные мы собираем</h3>
+    <ul>
+      <li>имя;</li>
+      <li>номер телефона;</li>
+      <li>адрес электронной почты (если указан);</li>
+      <li>данные бронирования (дата, время, число гостей, пожелания);</li>
+      <li>технические данные: файлы cookie, IP-адрес, данные систем аналитики (при их использовании).</li>
+    </ul>
+
+    <h3>3. Зачем мы собираем данные</h3>
+    <ul>
+      <li>обработка заявки на бронирование стола и обратная связь с гостем;</li>
+      <li>приём и уточнение заказа;</li>
+      <li>информирование о статусе заявки;</li>
+      <li>улучшение работы Сайта и качества обслуживания.</li>
+    </ul>
+
+    <h3>4. Правовые основания</h3>
+    <p>Обработка осуществляется на основании согласия Пользователя, а также в целях исполнения договора, стороной которого является Пользователь.</p>
+
+    <h3>5. Передача данных третьим лицам</h3>
+    <p>Оператор не продаёт и не передаёт персональные данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ, либо с согласия Пользователя.</p>
+
+    <h3>6. Сроки хранения</h3>
+    <p>Данные хранятся не дольше, чем этого требуют цели обработки, либо до отзыва согласия Пользователем.</p>
+
+    <h3>7. Права пользователя</h3>
+    <p>Пользователь вправе запросить сведения об обработке своих данных, потребовать их уточнения, блокирования или удаления, а также отозвать согласие, направив обращение на e-mail: <span class="fill">⟨почта для обращений⟩</span>.</p>
+
+    <h3>8. Файлы cookie</h3>
+    <p>Сайт может использовать файлы cookie для корректной работы и аналитики. Пользователь может отключить cookie в настройках браузера.</p>
+
+    <h3>9. Изменение политики</h3>
+    <p>Оператор вправе изменять настоящую Политику. Актуальная редакция всегда размещена на данной странице.</p>
+    <p class="doc-updated">Редакция от <span class="fill">⟨дата⟩</span>.</p>
+  </section>
+
+  <div class="doc-divider"></div>
+
+  <!-- ============ 2. СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ ============ -->
+  <section class="doc-section" id="consent-pd">
+    <h2>Согласие на обработку персональных данных</h2>
+    <p class="doc-law">В соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных»</p>
+
+    <p>Отправляя форму на Сайте, Пользователь свободно, своей волей и в своём интересе даёт согласие <span class="fill">⟨ИП / ООО — наименование⟩</span> (ОГРНИП/ОГРН <span class="fill">⟨номер⟩</span>, ИНН <span class="fill">⟨номер⟩</span>) на обработку своих персональных данных: имени, номера телефона, адреса электронной почты и данных бронирования.</p>
+
+    <p>Согласие даётся на совершение следующих действий: сбор, запись, систематизацию, хранение, уточнение, использование, передачу (в случаях, предусмотренных законом), обезличивание, блокирование и удаление данных.</p>
+
+    <p><strong>Цель обработки:</strong> обработка заявок на бронирование и заказ, обратная связь с Пользователем.</p>
+
+    <p>Согласие действует до достижения целей обработки либо до отзыва. Отзыв согласия направляется на e-mail: <span class="fill">⟨почта для обращений⟩</span>.</p>
+  </section>
+
+  <div class="doc-divider"></div>
+
+  <!-- ============ 3. СОГЛАСИЕ НА РЕКЛАМНУЮ РАССЫЛКУ ============ -->
+  <section class="doc-section" id="consent-ads">
+    <h2>Согласие на получение информационной и рекламной рассылки</h2>
+    <p class="doc-law">В соответствии с ч. 1 ст. 18 Федерального закона от 13.03.2006 № 38-ФЗ «О рекламе»</p>
+
+    <p>Клиент даёт согласие <span class="fill">⟨ИП / ООО — наименование⟩</span> (ОГРНИП/ОГРН <span class="fill">⟨номер⟩</span>, ИНН <span class="fill">⟨номер⟩</span>, сеть кафе «ТРАМ») на получение информационной и рекламной рассылки.</p>
+
+    <ol>
+      <li>Согласие является письменным согласием Клиента на получение рассылки в соответствии с ч. 1 ст. 18 ФЗ «О рекламе».</li>
+      <li>Согласие даётся на Сайте <a href="https://cafe-tram.ru">https://cafe-tram.ru</a>.</li>
+      <li>Акцептом Согласия является активация чек-бокса «Даю согласие на получение информационной и рекламной рассылки» и отправка формы.</li>
+      <li>Согласие даётся на следующие действия посредством сетей электросвязи:
+        <ul>
+          <li>рассылка SMS-сообщений информационного и (или) рекламного характера;</li>
+          <li>звонки и сообщения в мессенджерах по указанному номеру телефона;</li>
+          <li>информирование об акциях, специальных предложениях, мероприятиях кафе и его партнёров.</li>
+        </ul>
+      </li>
+      <li>Согласие является бессрочным и действует до момента отзыва.</li>
+      <li>Клиент вправе отозвать Согласие, направив письменный отзыв на e-mail: <span class="fill">⟨почта для обращений⟩</span>.</li>
+      <li>С момента получения отзыва Оператор прекращает использование номера Клиента для рекламных сообщений.</li>
+      <li>Условия могут быть изменены Оператором в одностороннем порядке; актуальная редакция размещается на данной странице.</li>
+    </ol>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-bottom-row">
+    <span class="footer-logo">Трам</span>
+    <div class="footer-info">ул. Гагарина, 149 · Зеленчукская<br><a href="tel:+79094963785">8 (909) 496-37-85</a> · Ежедневно 9:00 — 22:00</div>
+    <nav class="footer-nav">
+      <a href="index.html">Главная</a>
+      <a href="menu.html">Меню</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="privacy.html">Документы</a>
+    </nav>
+  </div>
+  <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская · Разработка: <a href="https://t.me/toolib09" target="_blank" style="color:inherit;opacity:0.6;text-decoration:none;">@toolib09</a></p>
+</footer>
+
+<script>
+function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+</script>
+</body>
+</html>

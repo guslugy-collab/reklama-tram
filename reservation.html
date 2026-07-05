@@ -118,6 +118,13 @@ textarea { resize: vertical; min-height: 100px; }
 }
 .form-submit:hover { background: var(--gold-light); }
 
+/* CONSENT CHECKBOXES */
+.consent-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin-top: 4px; }
+.consent-row input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--gold); cursor: pointer; }
+.consent-row span { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+.consent-row a { color: var(--gold); text-decoration: underline; }
+.consent-row a:hover { color: var(--gold-light); }
+
 /* SUCCESS STATE */
 .form-success { display: none; text-align: center; padding: 60px 40px; border: 1px solid rgba(201,168,76,0.2); }
 .form-success.show { display: block; }
@@ -293,6 +300,16 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
           <label for="comment">Пожелания</label>
           <textarea id="comment" name="comment" placeholder="Особые пожелания, детское меню, предзаказ блюд..."></textarea>
         </div>
+
+        <label class="consent-row" for="consentPd">
+          <input type="checkbox" id="consentPd" required>
+          <span>Я согласен на обработку моих персональных данных и принимаю <a href="privacy.html#policy" target="_blank">Политику конфиденциальности</a>.</span>
+        </label>
+        <label class="consent-row" for="consentAds">
+          <input type="checkbox" id="consentAds">
+          <span>Даю согласие на получение информационной и <a href="privacy.html#consent-ads" target="_blank">рекламной рассылки</a> (по желанию).</span>
+        </label>
+
         <button type="submit" class="form-submit">Отправить заявку</button>
       </form>
 
@@ -363,6 +380,7 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
       <a href="menu.html">Меню</a>
       <a href="about.html">О нас</a>
       <a href="contacts.html">Контакты</a>
+      <a href="privacy.html">Документы</a>
     </nav>
   </div>
   <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская · Разработка: <a href="https://t.me/toolib09" target="_blank" style="color:inherit;opacity:0.6;text-decoration:none;">@toolib09</a></p>
@@ -395,6 +413,13 @@ function submitForm(e) {
   if (!name || !phone || !date || !time || !guests) {
     const empties = form.querySelectorAll('[required]');
     empties.forEach(el => { if (!el.value) el.style.borderColor='rgba(220,80,80,0.6)'; else el.style.borderColor=''; });
+    return;
+  }
+
+  const consentPd = document.getElementById('consentPd');
+  if (!consentPd.checked) {
+    consentPd.parentElement.style.color = 'rgba(220,120,120,0.9)';
+    consentPd.focus();
     return;
   }
 
