@@ -458,10 +458,6 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
 .cart-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 300; padding: 13px 16px; border-radius: 8px; outline: none; width: 100%; -webkit-appearance: none; }
 .cart-input::placeholder { color: var(--text-muted); }
 .cart-input:focus { border-color: rgba(201,168,76,0.5); }
-.cart-consent { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
-.cart-consent input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--gold); cursor: pointer; }
-.cart-consent span { font-size: 11.5px; line-height: 1.5; color: var(--text-muted); }
-.cart-consent a { color: var(--gold); text-decoration: underline; }
 
 .cart-submit { margin: 4px 24px 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--gold); color: var(--forest); border: none; border-radius: 8px; min-height: 52px; font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; transition: background 0.15s; }
 .cart-submit:active { background: var(--gold-light); transform: scale(0.98); }
@@ -989,7 +985,6 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <a href="index.html">Главная</a>
       <a href="about.html">О нас</a>
       <a href="contacts.html">Контакты</a>
-      <a href="privacy.html">Документы</a>
     </nav>
   </div>
   <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская · Разработка: <a href="https://t.me/toolib09" target="_blank" style="color:inherit;opacity:0.6;text-decoration:none;">@toolib09</a></p>
@@ -1018,12 +1013,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <span class="cart-total-sum" id="cartTotalSum">0 ₽</span>
   </div>
   <div class="cart-form" id="cartForm" style="display:none">
-    <input class="cart-input" id="cartName" type="text" placeholder="Ваше имя" autocomplete="name">
-    <input class="cart-input" id="cartPhone" type="tel" placeholder="Телефон" autocomplete="tel">
-    <label class="cart-consent" for="cartConsent">
-      <input type="checkbox" id="cartConsent">
-      <span>Согласен на обработку данных и принимаю <a href="privacy.html#policy" target="_blank">Политику конфиденциальности</a></span>
-    </label>
+    <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;">Нажмите кнопку — откроется WhatsApp с вашим заказом. Имя и адрес напишите прямо в чате.</p>
   </div>
   <button class="cart-submit" id="cartSubmit" style="display:none" onclick="sendOrderWhatsApp()">
     Отправить заказ через WhatsApp
@@ -1130,20 +1120,10 @@ function closeCart() {
 function sendOrderWhatsApp() {
   var keys = Object.keys(cart);
   if (!keys.length) return;
-  var consent = document.getElementById('cartConsent');
-  if (!consent.checked) {
-    consent.parentElement.style.color = 'rgba(220,120,120,0.95)';
-    consent.focus();
-    return;
-  }
-  var name = (document.getElementById('cartName').value || '').trim();
-  var phone = (document.getElementById('cartPhone').value || '').trim();
   var lines = []; var total = 0;
   keys.forEach(function(k) { var i = cart[k]; lines.push(k + ' × ' + i.qty + ' = ' + (i.price * i.qty) + ' ₽'); total += i.price * i.qty; });
-  var text = 'Заказ из кафе ТРАМ:\n' + lines.join('\n') + '\n\nИтого: ' + total + ' ₽';
-  if (name) text += '\nИмя: ' + name;
-  if (phone) text += '\nТел: ' + phone;
-  window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text));
+  var text = 'Заказ из кафе ТРАМ:\n' + lines.join('\n') + '\n\nИтого: ' + total + ' ₽\n\nМеня зовут: ';
+  window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text), '_blank');
 }
 
 // Добавить фото к категориям и кнопки "+" к блюдам

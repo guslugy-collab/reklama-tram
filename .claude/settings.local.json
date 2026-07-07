@@ -59,7 +59,8 @@
       "Bash(py --version)",
       "PowerShell(Get-Command python, python3, py -ErrorAction SilentlyContinue)",
       "PowerShell(& \"C:\\\\Users\\\\PK\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\" --version 2>&1)",
-      "PowerShell(& \"C:\\\\Users\\\\PK\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" --version 2>&1)"
+      "PowerShell(& \"C:\\\\Users\\\\PK\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe\" --version 2>&1)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

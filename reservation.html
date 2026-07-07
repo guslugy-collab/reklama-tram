@@ -118,13 +118,6 @@ textarea { resize: vertical; min-height: 100px; }
 }
 .form-submit:hover { background: var(--gold-light); }
 
-/* CONSENT CHECKBOXES */
-.consent-row { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin-top: 4px; }
-.consent-row input[type="checkbox"] { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--gold); cursor: pointer; }
-.consent-row span { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
-.consent-row a { color: var(--gold); text-decoration: underline; }
-.consent-row a:hover { color: var(--gold-light); }
-
 /* SUCCESS STATE */
 .form-success { display: none; text-align: center; padding: 60px 40px; border: 1px solid rgba(201,168,76,0.2); }
 .form-success.show { display: block; }
@@ -227,20 +220,10 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
     <!-- FORM -->
     <div class="reveal">
       <span class="res-form-label">Забронировать стол</span>
-      <h2 class="res-form-title">Заполните заявку</h2>
-      <p class="res-form-sub">Мы свяжемся с вами в течение 30 минут для подтверждения. Также можно позвонить напрямую: <a href="tel:+79094963785" style="color:var(--gold);text-decoration:none;">8 (909) 496-37-85</a></p>
+      <h2 class="res-form-title">Выберите дату и время</h2>
+      <p class="res-form-sub">Укажите детали и подтвердите бронь в WhatsApp — там же напишите своё имя. Или позвоните напрямую: <a href="tel:+79094963785" style="color:var(--gold);text-decoration:none;">8 (909) 496-37-85</a></p>
 
       <form id="resForm" onsubmit="submitForm(event)" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Ваше имя *</label>
-            <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Телефон *</label>
-            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
-          </div>
-        </div>
         <div class="form-row">
           <div class="form-group">
             <label for="date">Дата *</label>
@@ -301,23 +284,10 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
           <textarea id="comment" name="comment" placeholder="Особые пожелания, детское меню, предзаказ блюд..."></textarea>
         </div>
 
-        <label class="consent-row" for="consentPd">
-          <input type="checkbox" id="consentPd" required>
-          <span>Я согласен на обработку моих персональных данных и принимаю <a href="privacy.html#policy" target="_blank">Политику конфиденциальности</a>.</span>
-        </label>
-        <label class="consent-row" for="consentAds">
-          <input type="checkbox" id="consentAds">
-          <span>Даю согласие на получение информационной и <a href="privacy.html#consent-ads" target="_blank">рекламной рассылки</a> (по желанию).</span>
-        </label>
-
-        <button type="submit" class="form-submit">Отправить заявку</button>
+        <button type="submit" class="form-submit">Забронировать через WhatsApp</button>
       </form>
 
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">✓</div>
-        <div class="success-title">Заявка отправлена!</div>
-        <div class="success-text">Спасибо, <span id="successName"></span>.<br>Мы перезвоним вам в течение 30 минут для подтверждения.<br><br>Если не дождались — звоните сами:<br><a href="tel:+79094963785" style="color:var(--gold);">8 (909) 496-37-85</a></div>
-      </div>
+      <p style="font-size:13px;color:var(--text-muted);margin-top:16px;line-height:1.6;">Нажимая кнопку, вы откроете WhatsApp с готовым сообщением о брони. Отправьте его — и мы подтвердим стол.</p>
     </div>
 
     <!-- SIDEBAR -->
@@ -380,7 +350,6 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
       <a href="menu.html">Меню</a>
       <a href="about.html">О нас</a>
       <a href="contacts.html">Контакты</a>
-      <a href="privacy.html">Документы</a>
     </nav>
   </div>
   <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская · Разработка: <a href="https://t.me/toolib09" target="_blank" style="color:inherit;opacity:0.6;text-decoration:none;">@toolib09</a></p>
@@ -404,29 +373,26 @@ dateInput.min = `${yyyy}-${mm}-${dd}`;
 function submitForm(e) {
   e.preventDefault();
   const form = document.getElementById('resForm');
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
   const date = document.getElementById('date').value;
   const time = document.getElementById('time').value;
   const guests = document.getElementById('guests').value;
+  const zone = document.getElementById('zone').value;
+  const comment = document.getElementById('comment').value.trim();
 
-  if (!name || !phone || !date || !time || !guests) {
+  if (!date || !time || !guests) {
     const empties = form.querySelectorAll('[required]');
     empties.forEach(el => { if (!el.value) el.style.borderColor='rgba(220,80,80,0.6)'; else el.style.borderColor=''; });
     return;
   }
 
-  const consentPd = document.getElementById('consentPd');
-  if (!consentPd.checked) {
-    consentPd.parentElement.style.color = 'rgba(220,120,120,0.9)';
-    consentPd.focus();
-    return;
-  }
-
-  form.style.display = 'none';
-  document.getElementById('successName').textContent = name;
-  document.getElementById('formSuccess').classList.add('show');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  let text = 'Здравствуйте! Хочу забронировать стол в кафе ТРАМ:\n';
+  text += 'Дата: ' + date + '\n';
+  text += 'Время: ' + time + '\n';
+  text += 'Гостей: ' + guests + '\n';
+  if (zone) text += 'Зона: ' + zone + '\n';
+  if (comment) text += 'Пожелания: ' + comment + '\n';
+  text += '\nМеня зовут: ';
+  window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text), '_blank');
 }
 </script>
 </body>

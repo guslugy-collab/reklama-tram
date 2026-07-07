@@ -3,9 +3,15 @@
   "configurations": [
     {
       "name": "cafe-tram",
-      "runtimeExecutable": "C:\\Users\\PK\\AppData\\Local\\Microsoft\\WindowsApps\\python3.exe",
+      "runtimeExecutable": "C:\\Users\\PK\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
       "runtimeArgs": ["-m", "http.server", "3000"],
       "port": 3000
+    },
+    {
+      "name": "919-perfume",
+      "runtimeExecutable": "powershell.exe",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\PK\\Desktop\\919-perfume\\serve.ps1"],
+      "port": 5199
     }
   ]
 }
