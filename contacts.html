@@ -412,8 +412,18 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <!-- Координаты для навигатора -->
     <div style="background:var(--forest-mid);border:1px solid rgba(201,168,76,0.1);padding:26px 28px;text-align:center;">
       <div style="font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Координаты для навигатора</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);">43.855012, 41.604421</div>
+      <div id="coordsValue" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);margin-bottom:16px;user-select:all;">43.855012, 41.604421</div>
+      <button type="button" onclick="copyCoords(this)" style="background:var(--gold);color:var(--forest);border:none;padding:10px 24px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;">Копировать координаты</button>
     </div>
+    <script>
+    function copyCoords(btn){
+      var text='43.855012, 41.604421';
+      var done=function(){var o=btn.getAttribute('data-label')||btn.textContent;btn.setAttribute('data-label',o);btn.textContent='Скопировано ✓';setTimeout(function(){btn.textContent=o;},1600);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){copyFallback(text);done();});}
+      else{copyFallback(text);done();}
+    }
+    function copyFallback(text){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.focus();t.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(t);}
+    </script>
   </div>
 
 </div>
