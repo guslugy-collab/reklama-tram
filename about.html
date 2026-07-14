@@ -421,8 +421,47 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <div class="about-photo"><img src="блюдо по горски_opt.jpg" alt="Блюдо по-горски" loading="lazy"></div>
     <div class="about-photo"><img src="стейк из сёмги_opt.jpg" alt="Стейк из сёмги" loading="lazy"></div>
     <div class="about-photo"><img src="овощная нарезка_opt.jpg" alt="Овощная нарезка" loading="lazy"></div>
-    <div class="about-photo"><img src="bishlak-1.jpg" alt="Бышлак биширген — фирменное блюдо" loading="lazy"></div>
-    <div class="about-photo"><img src="bishlak-2.jpg" alt="Бышлак биширген с тянущимся сыром" loading="lazy"></div>
+  </div>
+
+  <!-- ФИРМЕННОЕ БЛЮДО: БЫШЛАКЪ БИШИРГЕН -->
+  <style>
+  .bishlak-feature{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;margin:110px 0 90px;}
+  .bishlak-photos{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .bishlak-photos img{width:100%;height:430px;object-fit:cover;border-radius:4px;display:block;}
+  .bishlak-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+  .bishlak-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.6vw,46px);font-weight:300;color:var(--cream);line-height:1.12;margin-bottom:8px;}
+  .bishlak-title span{display:block;font-size:0.5em;letter-spacing:1px;color:var(--text-muted);margin-top:10px;font-style:italic;}
+  .bishlak-lead{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold-light);line-height:1.5;margin:20px 0 24px;font-style:italic;}
+  .bishlak-text p{font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:14px;}
+  .bishlak-text strong{color:var(--cream);font-weight:400;}
+  .bishlak-serve{list-style:none;padding:0;margin:0 0 18px;}
+  .bishlak-serve li{font-size:15px;color:var(--cream);line-height:1.85;padding:3px 0;}
+  .bishlak-note{font-size:15px;color:var(--gold-light);font-style:italic;margin:18px 0 26px;}
+  .bishlak-cta{display:inline-block;padding:14px 36px;background:var(--gold);color:var(--forest);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+  .bishlak-cta:hover{background:var(--gold-light);}
+  @media(max-width:900px){.bishlak-feature{grid-template-columns:1fr;gap:28px;margin:70px 0;}.bishlak-photos{order:-1;}.bishlak-photos img{height:300px;}}
+  </style>
+  <div class="bishlak-feature">
+    <div class="bishlak-text">
+      <p class="bishlak-label">Фирменное блюдо</p>
+      <h2 class="bishlak-title">Бышлакъ биширген<span>ради которого разворачиваются с трассы</span></h2>
+      <p class="bishlak-lead">Зачерпни ложкой — и сыр потянется золотыми нитями. Вот за этим моментом и возвращаются.</p>
+      <p>«Бышлакъ биширген» дословно — <strong>«сваренный сыр»</strong>. Одно из тех карачаевских блюд, что готовили в горах поколениями. Простое, честное, родное до мурашек.</p>
+      <p><strong>Как мы его подаём:</strong></p>
+      <ul class="bishlak-serve">
+        <li>🥔 Нежное кремовое пюре из картофеля — гладкое, почти воздушное</li>
+        <li>🧀 Сверху — цельный ломоть нашего домашнего сыра</li>
+        <li>🧈 И всё это в золотом кольце растопленного сливочного масла</li>
+      </ul>
+      <p>Опусти ложку — и тянется тот самый настоящий сыр. Домашний, а не с завода: только он даёт эту тягучесть и вкус.</p>
+      <p>Подаём горячим и сразу, прямо с плиты — остынет, потеряет вкус.</p>
+      <p class="bishlak-note">Немного как в детстве у бабушки — даже если бабушка была не с Кавказа.</p>
+      <a href="reservation.html" class="bishlak-cta">Забронировать стол</a>
+    </div>
+    <div class="bishlak-photos">
+      <img src="bishlak-1.jpg" alt="Бышлакъ биширген — пюре с домашним сыром и растопленным маслом" loading="lazy">
+      <img src="bishlak-2.jpg" alt="Тянущийся домашний сыр на ложке — бышлакъ биширген" loading="lazy">
+    </div>
   </div>
 
 </div>
