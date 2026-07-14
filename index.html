@@ -1811,17 +1811,6 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
         </p>
       </div>
     </div>
-    <div class="footer-authors">
-<div class="footer-authors-cards">
-        <div onclick="openDevCard()" style="text-decoration:none;cursor:pointer;" class="footer-author-card">
-          <div class="footer-author-avatar">T</div>
-          <div>
-            <div class="footer-author-name">@toolib09</div>
-            <div class="footer-author-role">Разработчик</div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская</p>
       <div class="footer-deco">
@@ -1902,37 +1891,8 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
   el.setAttribute('ontouchstart', '');
 });
 
-/* Dev card modal */
-function openDevCard() {
-  document.getElementById('devCardModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeDevCard() {
-  document.getElementById('devCardModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
 </script>
 
-<div class="dev-card-overlay" id="devCardModal" onclick="if(event.target===this)closeDevCard()">
-  <div class="dev-card">
-    <button class="dev-card-close" onclick="closeDevCard()">✕</button>
-    <p class="dev-card-tag">PRO · TELEGRAM · ADS</p>
-    <div class="dev-card-line"></div>
-    <h3 class="dev-card-title">Беру на себя<br><span>всё под ключ</span></h3>
-    <p class="dev-card-sub">Учусь настраивать рекламу в Telegram и тестирую всё на своём бизнесе.</p>
-    <ul class="dev-card-list">
-      <li>Создание сайтов</li>
-      <li>Настройка рекламы</li>
-      <li>Создание ботов</li>
-      <li>Реклама в Telegram</li>
-      <li>Вайб-кодинг</li>
-      <li>Создание приложений</li>
-    </ul>
-    <p class="dev-card-quote">Без воды. Без шума.<br>Только система. Только <strong>цифры.</strong></p>
-    <p class="dev-card-contact"><a href="tel:+79125787928">+7 912 578-79-28</a> · <a href="https://t.me/toolib09" target="_blank">@toolib09</a></p>
-    <a href="https://t.me/guide_tg_ads" target="_blank" class="dev-card-btn">t.me/guide_tg_ads</a>
-  </div>
-</div>
 
 <style>
 .dev-card-overlay {
