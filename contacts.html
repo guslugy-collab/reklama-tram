@@ -14,7 +14,7 @@
 <meta name="geo.placename" content="Зеленчукская, Карачаево-Черкесия">
 <meta name="geo.position" content="43.8677;41.5712">
 <meta name="ICBM" content="43.8677, 41.5712">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Кафе ТРАМ","telephone":["+79094963785","+79280317652"],"address":{"@type":"PostalAddress","streetAddress":"ул. Гагарина, 149","addressLocality":"Зеленчукская","addressRegion":"Карачаево-Черкесская Республика","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":43.8677,"longitude":41.5712},"openingHours":"Mo-Su 09:00-22:00","hasMap":"https://yandex.ru/maps/org/tram/1749215390/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Кафе ТРАМ","telephone":["+79094963785","+79280317652"],"address":{"@type":"PostalAddress","streetAddress":"ул. Гагарина, 149","addressLocality":"Зеленчукская","addressRegion":"Карачаево-Черкесская Республика","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":43.8677,"longitude":41.5712},"openingHours":"Mo-Su 09:00-22:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -336,8 +336,8 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <div class="contact-card-value">ул. Гагарина, 149<br>Зеленчукская</div>
       <div class="contact-card-sub">Карачаево-Черкесская Республика</div>
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;">
-        <a href="https://www.google.com/maps/search/?api=1&query=%D0%BA%D0%B0%D1%84%D0%B5+%D0%A2%D0%A0%D0%90%D0%9C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0+149+%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D1%87%D1%83%D0%BA%D1%81%D0%BA%D0%B0%D1%8F" target="_blank" rel="noopener"
-           style="display:block;background:var(--gold);color:var(--forest);text-align:center;padding:9px 12px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Google Maps</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=43.8677,41.5712" target="_blank" rel="noopener"
+           style="display:block;background:var(--gold);color:var(--forest);text-align:center;padding:9px 12px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Проложить маршрут</a>
       </div>
     </div>
     <!-- Время -->
@@ -396,7 +396,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
           <p style="margin-top:10px;">Рядом есть удобная бесплатная парковка. Мы работаем без выходных — приезжайте в любой день с 9 до 22.</p>
         </div>
         <div class="map-btns">
-          <a href="https://www.google.com/maps/search/?api=1&query=%D0%BA%D0%B0%D1%84%D0%B5+%D0%A2%D0%A0%D0%90%D0%9C+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D0%B0+149+%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D1%87%D1%83%D0%BA%D1%81%D0%BA%D0%B0%D1%8F" target="_blank" rel="noopener" class="map-btn map-btn-gold">Открыть в Google Maps</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=43.8677,41.5712" target="_blank" rel="noopener" class="map-btn map-btn-gold">Проложить маршрут</a>
         </div>
       </div>
       <div>
@@ -409,18 +409,12 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       </div>
     </div>
 
-    <!-- MAP IFRAME -->
-    <div class="map-embed-wrap">
-      <div class="map-overlay-label">
-        <span>Адрес</span>
-        <strong>ул. Гагарина, 149 · Зеленчукская</strong>
+    <!-- Координаты для навигатора -->
+    <div class="map-embed-wrap" style="display:flex;align-items:center;justify-content:center;">
+      <div class="map-overlay-label" style="position:static;text-align:center;">
+        <span>Координаты для навигатора</span>
+        <strong>43.8677, 41.5712</strong>
       </div>
-      <iframe
-        src="https://yandex.ru/map-widget/v1/?ll=41.5712%2C43.8677&z=16&pt=41.5712%2C43.8677%2Cpm2rdm&text=%D0%9A%D0%B0%D1%84%D0%B5+%D0%A2%D0%A0%D0%90%D0%9C+%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D1%87%D1%83%D0%BA%D1%81%D0%BA%D0%B0%D1%8F"
-        allowfullscreen
-        loading="lazy"
-        title="Кафе ТРАМ на карте">
-      </iframe>
     </div>
   </div>
 
