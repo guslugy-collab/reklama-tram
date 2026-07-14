@@ -444,8 +444,41 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <a href="contacts.html">Контакты</a>
     </nav>
   </div>
-  <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская · Разработка: <a href="tel:+79125787928" style="color:inherit;opacity:0.6;text-decoration:none;">+7 912 578-79-28</a></p>
+  <div style="padding:28px 0 4px;margin-top:8px;border-top:1px solid rgba(201,168,76,0.1);display:flex;justify-content:center;">
+    <div onclick="openDevCard()" style="display:inline-flex;align-items:center;gap:12px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);padding:10px 16px;min-width:200px;cursor:pointer;">
+      <div style="width:36px;height:36px;background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;font-size:14px;color:#C9A84C;font-family:'Cormorant Garamond',serif;flex-shrink:0;">T</div>
+      <div>
+        <div style="font-size:12px;font-weight:500;color:#F5EDD8;letter-spacing:1px;">@toolib09</div>
+        <div style="font-size:10px;color:rgba(245,237,216,0.4);letter-spacing:1px;margin-top:2px;">Разработчик</div>
+      </div>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 Кафе «ТРАМ» · Зеленчукская</p>
 </footer>
+<div id="devCardModal" onclick="if(event.target===this)closeDevCard()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:3000;align-items:center;justify-content:center;padding:20px;">
+  <div style="position:relative;width:100%;max-width:380px;background:linear-gradient(160deg,#0a0e17 0%,#10151f 100%);border:1px solid rgba(90,140,255,0.25);padding:40px 32px;max-height:90vh;overflow-y:auto;">
+    <button onclick="closeDevCard()" style="position:absolute;top:16px;right:16px;background:none;border:none;color:rgba(255,255,255,0.5);font-size:16px;cursor:pointer;">✕</button>
+    <p style="font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.6);margin-bottom:24px;">PRO · TELEGRAM · ADS</p>
+    <div style="width:32px;height:2px;background:#4a90ff;margin-bottom:24px;"></div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:16px;text-transform:uppercase;">Беру на себя<br><span style="color:#4a90ff;">всё под ключ</span></h3>
+    <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:24px;">Учусь настраивать рекламу в Telegram и тестирую всё на своём бизнесе.</p>
+    <ul style="list-style:none;padding:0;margin-bottom:24px;">
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Создание сайтов</li>
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Настройка рекламы</li>
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Создание ботов</li>
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Реклама в Telegram</li>
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Вайб-кодинг</li>
+      <li style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:#fff;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">Создание приложений</li>
+    </ul>
+    <p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:24px;">Без воды. Без шума.<br>Только система. Только <strong style="color:#4a90ff;">цифры.</strong></p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.75);margin-bottom:16px;letter-spacing:0.5px;"><a href="tel:+79125787928" style="color:#4a90ff;text-decoration:none;">+7 912 578-79-28</a></p>
+    <a href="tel:+79125787928" style="display:block;text-align:center;background:#4a90ff;color:#fff;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1px;padding:14px;">Позвонить: +7 912 578-79-28</a>
+  </div>
+</div>
+<script>
+function openDevCard(){document.getElementById('devCardModal').style.display='flex';document.body.style.overflow='hidden';}
+function closeDevCard(){document.getElementById('devCardModal').style.display='none';document.body.style.overflow='';}
+</script>
 
 <script>
 const reveals = document.querySelectorAll('.reveal');
