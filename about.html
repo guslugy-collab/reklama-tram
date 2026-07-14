@@ -437,7 +437,8 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   .bishlak-text p{font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:14px;}
   .bishlak-text strong{color:var(--cream);font-weight:400;}
   .bishlak-serve{list-style:none;padding:0;margin:0 0 18px;}
-  .bishlak-serve li{font-size:15px;color:var(--cream);line-height:1.85;padding:3px 0;}
+  .bishlak-serve li{font-size:15px;color:var(--cream);line-height:1.85;padding:4px 0 4px 22px;position:relative;}
+  .bishlak-serve li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.7;}
   .bishlak-note{font-size:15px;color:var(--gold-light);font-style:italic;margin:18px 0 26px;}
   .bishlak-cta{display:inline-block;padding:14px 36px;background:var(--gold);color:var(--forest);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
   .bishlak-cta:hover{background:var(--gold-light);}
@@ -451,9 +452,9 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <p>«Бышлакъ биширген» дословно — <strong>«сваренный сыр»</strong>. Одно из тех карачаевских блюд, что готовили в горах поколениями. Простое, честное, родное до мурашек.</p>
       <p><strong>Как мы его подаём:</strong></p>
       <ul class="bishlak-serve">
-        <li>🥔 Нежное кремовое пюре из картофеля — гладкое, почти воздушное</li>
-        <li>🧀 Сверху — цельный ломоть нашего домашнего сыра</li>
-        <li>🧈 И всё это в золотом кольце растопленного сливочного масла</li>
+        <li>Нежное кремовое пюре из картофеля — гладкое, почти воздушное</li>
+        <li>Сверху — цельный ломоть нашего домашнего сыра</li>
+        <li>И всё это в золотом кольце растопленного сливочного масла</li>
       </ul>
       <p>Опусти ложку — и тянется тот самый настоящий сыр. Домашний, а не с завода: только он даёт эту тягучесть и вкус.</p>
       <p>Подаём горячим и сразу, прямо с плиты — остынет, потеряет вкус.</p>
