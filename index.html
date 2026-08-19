@@ -1844,19 +1844,6 @@ window.addEventListener('scroll', () => {
 var heroBg = document.getElementById('heroBg');
 var heroBgImg = document.getElementById('heroBgImg');
 
-// На телефонах (и особенно во встроенных браузерах вроде Telegram/Instagram/
-// WhatsApp) видео-фон слишком часто ведёт себя непредсказуемо на iOS —
-// вместо попыток угадать конкретный движок просто не грузим видео на
-// маленьких/тач-экранах и сразу показываем статичную картинку.
-var isMobile = window.innerWidth <= 900;
-
-if (isMobile) {
-  heroBg.remove();
-  heroBg = heroBgImg;
-  heroBg.style.display = '';
-  heroBg.classList.add('loaded');
-}
-
 if (heroBg.tagName === 'VIDEO') {
   heroBg.preload = 'auto';
   heroBg.src = heroBg.dataset.src;
