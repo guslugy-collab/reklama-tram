@@ -1511,9 +1511,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-bg" id="heroBg" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="hero-poster.jpg">
-    <source src="hero-v2-opt.mp4" type="video/mp4">
-  </video>
+  <video class="hero-bg" id="heroBg" muted loop playsinline webkit-playsinline preload="none" poster="hero-poster.jpg" data-src="hero-v2-opt.mp4"></video>
   <img class="hero-bg" id="heroBgImg" src="hero-poster.jpg" alt="" style="display:none;">
   <div class="hero-overlay"></div>
   <div class="hero-overlay-bottom"></div>
@@ -1845,13 +1843,13 @@ window.addEventListener('scroll', () => {
 var heroBg = document.getElementById('heroBg');
 var heroBgImg = document.getElementById('heroBgImg');
 
-// Встроенные браузеры (Telegram, Instagram, Facebook, WhatsApp) на iOS часто
-// не поддерживают playsinline и разворачивают видео в системный fullscreen-плеер.
-// Для них показываем статичную картинку вместо видео.
-var isInAppBrowser = !!window.TelegramWebviewProxy || !!window.TelegramWebviewProxyProto ||
-  /FBAN|FBAV|Instagram|Line\/|\bWhatsApp\b/i.test(navigator.userAgent || '');
+// На телефонах (и особенно во встроенных браузерах вроде Telegram/Instagram/
+// WhatsApp) видео-фон слишком часто ведёт себя непредсказуемо на iOS —
+// вместо попыток угадать конкретный движок просто не грузим видео на
+// маленьких/тач-экранах и сразу показываем статичную картинку.
+var isMobile = window.innerWidth <= 900;
 
-if (isInAppBrowser) {
+if (isMobile) {
   heroBg.remove();
   heroBg = heroBgImg;
   heroBg.style.display = '';
@@ -1859,6 +1857,8 @@ if (isInAppBrowser) {
 }
 
 if (heroBg.tagName === 'VIDEO') {
+  heroBg.preload = 'auto';
+  heroBg.src = heroBg.dataset.src;
   heroBg.addEventListener('loadeddata', () => heroBg.classList.add('loaded'));
   heroBg.addEventListener('playing', () => heroBg.classList.add('loaded'));
   setTimeout(() => heroBg.classList.add('loaded'), 3000);
