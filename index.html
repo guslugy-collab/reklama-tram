@@ -1514,6 +1514,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <video class="hero-bg" id="heroBg" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="hero-poster.jpg">
     <source src="hero-v2-opt.mp4" type="video/mp4">
   </video>
+  <img class="hero-bg" id="heroBgImg" src="hero-poster.jpg" alt="" style="display:none;">
   <div class="hero-overlay"></div>
   <div class="hero-overlay-bottom"></div>
 
@@ -1841,7 +1842,22 @@ window.addEventListener('scroll', () => {
 });
 
 /* Hero bg parallax + load */
-const heroBg = document.getElementById('heroBg');
+var heroBg = document.getElementById('heroBg');
+var heroBgImg = document.getElementById('heroBgImg');
+
+// Встроенные браузеры (Telegram, Instagram, Facebook, WhatsApp) на iOS часто
+// не поддерживают playsinline и разворачивают видео в системный fullscreen-плеер.
+// Для них показываем статичную картинку вместо видео.
+var isInAppBrowser = !!window.TelegramWebviewProxy || !!window.TelegramWebviewProxyProto ||
+  /FBAN|FBAV|Instagram|Line\/|\bWhatsApp\b/i.test(navigator.userAgent || '');
+
+if (isInAppBrowser) {
+  heroBg.remove();
+  heroBg = heroBgImg;
+  heroBg.style.display = '';
+  heroBg.classList.add('loaded');
+}
+
 if (heroBg.tagName === 'VIDEO') {
   heroBg.addEventListener('loadeddata', () => heroBg.classList.add('loaded'));
   heroBg.addEventListener('playing', () => heroBg.classList.add('loaded'));
