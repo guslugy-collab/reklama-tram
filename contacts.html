@@ -8,8 +8,21 @@
 <meta name="description" content="Кафе ТРАМ: ул. Гагарина, 149, Зеленчукская, КЧР. Телефон: 8 (909) 496-37-85, 8 (928) 031-76-52. Работаем ежедневно 9:00–22:00. Бесплатная парковка. На трассе к Архызу.">
 <meta name="keywords" content="кафе ТРАМ адрес, кафе Зеленчукская адрес, кафе рядом с Архызом, где находится кафе ТРАМ, контакты кафе КЧР, ул Гагарина 149 Зеленчукская">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cafe-tram.ru/contacts.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B1A0B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Кафе ТРАМ">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://cafe-tram.ru/contacts.html">
 <meta property="og:title" content="Контакты — Кафе ТРАМ · Зеленчукская">
 <meta property="og:description" content="ул. Гагарина, 149 · Зеленчукская. Тел: 8 (909) 496-37-85. Ежедневно 9:00–22:00. На трассе в сторону Архыза.">
+<meta property="og:image" content="https://cafe-tram.ru/hall-main.jpg_opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Контакты — Кафе ТРАМ">
+<meta name="twitter:description" content="ул. Гагарина, 149 · Зеленчукская, КЧР. Тел: 8 (909) 496-37-85. Ежедневно 9:00–22:00.">
+<meta name="twitter:image" content="https://cafe-tram.ru/hall-main.jpg_opt.jpg">
 <meta name="geo.region" content="RU-KC">
 <meta name="geo.placename" content="Зеленчукская, Карачаево-Черкесия">
 <meta name="geo.position" content="43.855012;41.604421">
@@ -49,8 +62,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60
 .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
 .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.65; transition: opacity 0.3s, color 0.3s; }
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold-light); }
-.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--forest); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
-.nav-reserve:hover { background: var(--gold-light); }
+.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream); background: transparent; border: 1px solid rgba(245,237,216,0.35); padding: 10px 24px; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.nav-reserve:hover { border-color: var(--gold); color: var(--gold-light); }
+.nav-reserve:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 .nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: none; border: none; }
 .nav-burger span { display: block; width: 24px; height: 1px; background: var(--cream); }
 .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(11,26,11,0.98); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
@@ -110,10 +124,17 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60
 .map-address-body { font-size: 14px; color: var(--text-muted); line-height: 1.9; }
 .map-address-body strong { color: var(--cream); font-weight: 400; }
 .map-btns { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
-.map-btn { display: inline-block; padding: 13px 28px; font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; text-align: center; transition: background 0.3s, color 0.3s; }
-.map-btn-gold { background: var(--gold); color: var(--forest); }
-.map-btn-gold:hover { background: var(--gold-light); }
+.map-btn { display: inline-block; padding: 13px 28px; font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none; text-align: center; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.map-btn-gold { background: transparent; border: 1px solid rgba(245,237,216,0.35); color: var(--cream); }
+.map-btn-gold:hover { border-color: var(--gold); color: var(--gold-light); }
+.map-btn-gold:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 .map-btn-outline { border: 1px solid rgba(201,168,76,0.25); color: var(--text-muted); }
+.mini-gold-btn { display: block; background: transparent; border: 1px solid rgba(245,237,216,0.35); color: var(--cream); text-align: center; text-decoration: none; cursor: pointer; font-family: 'Jost', sans-serif; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.mini-gold-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+.mini-gold-btn:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
+.phone-net-btn { display: flex; align-items: center; gap: 14px; background: transparent; color: var(--gold); text-decoration: none; padding: 18px 32px; border: 1px solid rgba(201,168,76,0.3); min-width: 260px; justify-content: center; touch-action: manipulation; -webkit-tap-highlight-color: rgba(0,0,0,0); transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.phone-net-btn:hover { border-color: var(--gold); }
+.phone-net-btn:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 .map-btn-outline:hover { border-color: var(--gold); color: var(--cream); }
 
 /* MAP EMBED */
@@ -180,6 +201,21 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   .map-embed-wrap { height: 300px; }
 }
 
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .nav-links, .nav-reserve { display: none; }
+  .nav-burger { display: flex; }
+  .contacts-body { padding: 40px 20px 0; }
+  .how-to-find { padding: 40px 20px 0; }
+  .contacts-cards { grid-template-columns: 1fr 1fr !important; gap: 2px; }
+  .contacts-map-header { grid-template-columns: 1fr; gap: 24px; }
+  .directions { grid-template-columns: 1fr 1fr; }
+  .page-hero { height: 260px; }
+  .map-embed-wrap { height: 280px; }
+  .map-btns { flex-direction: column; }
+  .map-btn { text-align: center; }
+}
+
 @media (max-width: 480px) {
   nav { padding: 14px 16px; }
   .contacts-body { padding: 32px 16px 0; }
@@ -194,21 +230,6 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   .hours-table td:first-child { width: 130px; }
   .hours-table td:last-child { font-size: 16px; }
   .mobile-menu a { font-size: 26px; }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 18px 20px; }
-  .nav-links, .nav-reserve { display: none; }
-  .nav-burger { display: flex; }
-  .contacts-body { padding: 40px 20px 0; }
-  .how-to-find { padding: 40px 20px 0; }
-  .contacts-cards { grid-template-columns: 1fr 1fr !important; gap: 2px; }
-  .contacts-map-header { grid-template-columns: 1fr; gap: 24px; }
-  .directions { grid-template-columns: 1fr 1fr; }
-  .page-hero { height: 260px; }
-  .map-embed-wrap { height: 280px; }
-  .map-btns { flex-direction: column; }
-  .map-btn { text-align: center; }
 }
 
 @media (max-width: 320px) {
@@ -273,6 +294,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <a href="index.html" onclick="closeMobileMenu()">Главная</a>
   <a href="menu.html" onclick="closeMobileMenu()">Меню</a>
   <a href="about.html" onclick="closeMobileMenu()">О нас</a>
+  <a href="contacts.html#delivery" onclick="closeMobileMenu()">Доставка</a>
   <a href="contacts.html" onclick="closeMobileMenu()">Контакты</a>
 </div>
 
@@ -282,6 +304,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <li><a href="index.html">Главная</a></li>
     <li><a href="menu.html">Меню</a></li>
     <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html#delivery">Доставка</a></li>
     <li><a href="contacts.html" class="active">Контакты</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:28px;">
@@ -331,13 +354,13 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     </div>
     <!-- Адрес -->
     <div class="contact-card">
-      <img src="здание.jpg_opt.jpg" alt="Кафе ТРАМ" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:14px;" loading="lazy">
+      <img src="zdanie-opt.jpg" alt="Кафе ТРАМ" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:14px;" loading="lazy">
       <div class="contact-card-label">Адрес</div>
       <div class="contact-card-value">ул. Гагарина, 149<br>Зеленчукская</div>
       <div class="contact-card-sub">Карачаево-Черкесская Республика</div>
       <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;">
         <a href="https://www.google.com/maps/dir/?api=1&destination=43.855012,41.604421" target="_blank" rel="noopener"
-           style="display:block;background:var(--gold);color:var(--forest);text-align:center;padding:9px 12px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">Проложить маршрут</a>
+           class="mini-gold-btn" style="padding:9px 12px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Проложить маршрут</a>
       </div>
     </div>
     <!-- Время -->
@@ -387,8 +410,8 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
 
   <!-- MAP -->
   <div class="contacts-map-section reveal">
-    <div class="contacts-map-header">
-      <div class="map-address-block">
+    <div class="contacts-map-header" style="grid-template-columns: 1fr;">
+      <div class="map-address-block" style="max-width:640px;">
         <p class="map-address-label">Как нас найти</p>
         <h2 class="map-address-title">Улица Гагарина, 149<br>Зеленчукская</h2>
         <div class="map-address-body">
@@ -399,21 +422,21 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
           <a href="https://www.google.com/maps/dir/?api=1&destination=43.855012,41.604421" target="_blank" rel="noopener" class="map-btn map-btn-gold">Проложить маршрут</a>
         </div>
       </div>
-      <div>
-        <div style="background:var(--forest-mid);border:1px solid rgba(201,168,76,0.12);padding:28px;">
-          <div style="font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Доставка</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--cream);margin-bottom:10px;">Привезём домой или в офис</div>
-          <div style="font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:20px;">Принимаем заказы на доставку по Зеленчукской. Позвоните — уточним зону и стоимость.</div>
-          <a href="tel:+79094963785" style="display:block;background:var(--gold);color:var(--forest);text-align:center;padding:13px 20px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;">8 (909) 496-37-85</a>
-        </div>
-      </div>
+    </div>
+
+    <!-- Доставка -->
+    <div id="delivery" style="background:var(--forest-mid);border:1px solid rgba(201,168,76,0.12);padding:36px;margin-bottom:32px;scroll-margin-top:100px;">
+      <div style="font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Доставка</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--cream);margin-bottom:10px;">Привезём домой или в офис</div>
+      <div style="font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:20px;max-width:640px;">Принимаем заказы на доставку. В связи с повышением цен на топливо доставка по Зеленчукской стала платной — 150 ₽. Упаковка для заказов навынос — от 10 до 25 ₽ за позицию.</div>
+      <a href="tel:+79094963785" class="mini-gold-btn" style="display:inline-block;padding:13px 24px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;">8 (909) 496-37-85</a>
     </div>
 
     <!-- Координаты для навигатора -->
     <div style="background:var(--forest-mid);border:1px solid rgba(201,168,76,0.1);padding:26px 28px;text-align:center;">
       <div style="font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Координаты для навигатора</div>
       <div id="coordsValue" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);margin-bottom:16px;user-select:all;">43.855012, 41.604421</div>
-      <button type="button" onclick="copyCoords(this)" style="background:var(--gold);color:var(--forest);border:none;padding:10px 24px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;">Копировать координаты</button>
+      <button type="button" onclick="copyCoords(this)" class="mini-gold-btn" style="display:inline-block;padding:10px 24px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;">Копировать координаты</button>
     </div>
     <script>
     function copyCoords(btn){
@@ -481,16 +504,14 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
 <div class="contacts-cta">
   <p class="contacts-cta-title">Звоните — ответим сразу</p>
   <div style="display:-webkit-flex;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;margin-top:24px;">
-    <a href="tel:+79094963785"
-       style="display:-webkit-flex;display:flex;align-items:center;gap:14px;background:var(--forest);color:var(--gold);text-decoration:none;padding:18px 32px;border:1px solid rgba(201,168,76,0.3);min-width:260px;justify-content:center;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);">
+    <a href="tel:+79094963785" class="phone-net-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
       <span>
         <span style="display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:0.6;margin-bottom:3px;">Билайн</span>
         <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;letter-spacing:2px;">8 (909) 496-37-85</span>
       </span>
     </a>
-    <a href="tel:+79280317652"
-       style="display:-webkit-flex;display:flex;align-items:center;gap:14px;background:var(--forest);color:var(--gold);text-decoration:none;padding:18px 32px;border:1px solid rgba(201,168,76,0.3);min-width:260px;justify-content:center;touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,0,0,0);">
+    <a href="tel:+79280317652" class="phone-net-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
       <span>
         <span style="display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:0.6;margin-bottom:3px;">Мегафон</span>

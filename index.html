@@ -13,6 +13,11 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://cafe-tram.ru/">
 
+<!-- Favicon и иконки -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B1A0B">
+
 <!-- Геолокация для поисковиков -->
 <meta name="geo.region" content="RU-KC">
 <meta name="geo.placename" content="Зеленчукская, Карачаево-Черкесия">
@@ -23,9 +28,14 @@
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="Кафе ТРАМ — Кавказская кухня в Зеленчукской">
 <meta property="og:description" content="Хычины на живом огне, шашлык, шорпа из свежего мяса. Рейтинг 5.0 ★ · 659 отзывов. На трассе в сторону Архыза. Работаем 9:00–22:00.">
-<meta property="og:image" content="hall-main.jpg_opt.jpg">
+<meta property="og:url" content="https://cafe-tram.ru/">
+<meta property="og:image" content="https://cafe-tram.ru/hall-main.jpg_opt.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Кафе ТРАМ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Кафе ТРАМ — Кавказская кухня в Зеленчукской">
+<meta name="twitter:description" content="Хычины на живом огне, шашлык, шорпа. Рейтинг 5.0 ★ · 659 отзывов. На трассе к Архызу.">
+<meta name="twitter:image" content="https://cafe-tram.ru/hall-main.jpg_opt.jpg">
 
 <!-- Структурированные данные для Google и Яндекс -->
 <script type="application/ld+json">
@@ -33,6 +43,7 @@
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Кафе ТРАМ",
+  "slogan": "Вкус Кавказа по дороге в Архыз",
   "description": "Настоящая кавказская кухня в Зеленчукской. Хычины, шашлык на живом огне, шорпа, блюда карачаевской кухни.",
   "url": "https://cafe-tram.ru",
   "telephone": "+79094963785",
@@ -66,6 +77,7 @@
   "sameAs": [
     "https://t.me/CAFE_TRAM_ZELE_NCHUKSKAYA"
   ],
+  "_comment_sameAs": "ВСТАВЬТЕ СЮДА реальные ссылки на карточки заведения — в массив sameAs выше, каждая в кавычках через запятую. Пример: ссылка на Яндекс.Карты (со страницы организации), 2ГИС, VK, Google Карты, Instagram. Это помогает Google и Яндексу связать сайт с карточкой на картах.",
   "image": "hall-main.jpg_opt.jpg",
   "areaServed": ["Зеленчукская","Архыз","Карачаево-Черкесия","КЧР"]
 }
@@ -177,13 +189,15 @@ nav.scrolled {
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--forest);
-  background: var(--gold);
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid rgba(245,237,216,0.35);
   padding: 10px 24px;
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
-.nav-reserve:hover { background: var(--gold-light); }
+.nav-reserve:hover { border-color: var(--gold); color: var(--gold-light); }
+.nav-reserve:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 
 /* ─── HAMBURGER (mobile) ─── */
 .nav-burger {
@@ -386,44 +400,28 @@ nav.scrolled {
   opacity: 0;
   animation: fadeIn 0.8s ease 1.4s forwards;
 }
-.btn-primary {
+.btn-primary, .btn-ghost {
   font-family: 'Jost', sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--forest);
-  background: var(--gold);
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid rgba(245,237,216,0.35);
   padding: 16px 40px;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.3s, transform 0.3s;
-  position: relative;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
 }
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border: 1px solid var(--gold);
-  opacity: 0;
-  transition: opacity 0.3s, inset 0.3s;
+.btn-primary:hover, .btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+.btn-primary:active, .btn-ghost:active {
+  background: var(--gold);
+  color: var(--forest);
+  border-color: var(--gold);
+  transform: translateY(0) scale(0.96);
+  transition: background 0.12s, color 0.12s, border-color 0.12s, transform 0.12s;
 }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-.btn-primary:hover::before { opacity: 1; inset: -8px; }
-
-.btn-ghost {
-  font-family: 'Jost', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--cream);
-  text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.3s;
-  padding: 16px 20px;
-}
-.btn-ghost:hover { opacity: 1; }
 
 /* Rating badge */
 .hero-rating {
@@ -1063,6 +1061,7 @@ section { padding: 120px 60px; }
   transition: background 0.3s, color 0.3s;
 }
 .btn-outline-dark:hover { background: var(--forest); color: var(--gold); }
+.btn-outline-dark:active { background: var(--forest); color: var(--gold); transition: background 0.12s, color 0.12s; }
 
 /* ─── FOOTER ─── */
 footer {
@@ -1489,6 +1488,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <a href="index.html" onclick="closeMobileMenu()">Главная</a>
   <a href="menu.html" onclick="closeMobileMenu()">Меню</a>
   <a href="about.html" onclick="closeMobileMenu()">О нас</a>
+  <a href="contacts.html#delivery" onclick="closeMobileMenu()">Доставка</a>
   <a href="contacts.html" onclick="closeMobileMenu()">Контакты</a>
 
 </div>
@@ -1499,6 +1499,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <ul class="nav-links">
     <li><a href="menu.html">Меню</a></li>
     <li><a href="about.html">О нас</a></li>
+    <li><a href="contacts.html#delivery">Доставка</a></li>
     <li><a href="contacts.html">Контакты</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:32px;">
@@ -1534,9 +1535,10 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       <div class="hero-ornament-diamond"></div>
       <div class="hero-ornament-line right"></div>
     </div>
-    <p class="hero-subtitle">Настоящая кавказская кухня на трассе</p>
+    <p class="hero-subtitle">Вкус Кавказа по дороге в Архыз</p>
     <div class="hero-cta">
       <a href="menu.html" class="btn-primary">Смотреть меню</a>
+      <a href="reservation.html" class="btn-ghost">Забронировать стол</a>
     </div>
   </div>
 
@@ -1607,8 +1609,8 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
         </div>
       </div>
       <div class="about-photos reveal reveal-delay-2">
-        <img src="хычин с маслом_opt.jpg" alt="Хычин кафе ТРАМ" class="about-photo-main" loading="lazy">
-        <img src="шашлык.jpg" alt="Шашлык кафе ТРАМ" class="about-photo-accent" style="display:none;" id="shashlik-photo" loading="lazy">
+        <img src="hychin-maslo-opt.jpg" alt="Хычин кафе ТРАМ" class="about-photo-main" loading="lazy">
+        <img src="shashlyk.jpg" alt="Шашлык кафе ТРАМ" class="about-photo-accent" style="display:none;" id="shashlik-photo" loading="lazy">
         <div class="about-photo-badge">
           <span class="about-photo-badge-num">9–22</span>
           <span class="about-photo-badge-text">Каждый день</span>
@@ -1643,7 +1645,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <div class="dishes-grid">
       <div class="dish-card reveal">
         <div class="dish-card-img">
-          <img src="фото с хычинами_opt.jpg" alt="Хычины" loading="lazy">
+          <img src="foto-hychin-opt.jpg" alt="Хычины" loading="lazy">
           <div class="dish-card-overlay"></div>
           <span class="dish-card-num">01</span>
           <div class="dish-card-content">
@@ -1660,7 +1662,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       </div>
       <div class="dish-card reveal reveal-delay-1">
         <div class="dish-card-img">
-          <img src="жаркое_opt.jpg" alt="Жаркое с мясом" loading="lazy">
+          <img src="zharkoe-opt.jpg" alt="Жаркое с мясом" loading="lazy">
           <div class="dish-card-overlay"></div>
           <span class="dish-card-num">02</span>
           <div class="dish-card-content">
@@ -1677,7 +1679,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       </div>
       <div class="dish-card reveal reveal-delay-2">
         <div class="dish-card-img">
-          <img src="форель речная_opt.jpg" alt="Форель речная" loading="lazy">
+          <img src="forel-rechnaya-opt.jpg" alt="Форель речная" loading="lazy">
           <div class="dish-card-overlay"></div>
           <span class="dish-card-num">03</span>
           <div class="dish-card-content">
@@ -1702,8 +1704,8 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <p class="section-label reveal" style="justify-content:center;">Живой огонь</p>
     <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Шашлык на мангале —<br><em>так, как надо</em></h2>
     <div class="video-wrap reveal reveal-delay-2">
-      <video controls playsinline webkit-playsinline preload="metadata" poster="шашлык.jpg_opt.jpg">
-        <source src="шашлык2.mp4" type="video/mp4">
+      <video controls playsinline webkit-playsinline preload="metadata" poster="shashlyk-opt.jpg">
+        <source src="shashlyk2.mp4" type="video/mp4">
       </video>
     </div>
   </div>

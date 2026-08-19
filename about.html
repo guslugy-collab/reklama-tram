@@ -8,8 +8,21 @@
 <meta name="description" content="Кафе ТРАМ — 11 лет готовим настоящую кавказскую кухню в Зеленчукской. Хычины на живом тесте, шашлык на живом огне, домашние соусы. Рейтинг 5.0 ★ · 659 отзывов.">
 <meta name="keywords" content="кафе ТРАМ о нас, кавказская кухня Зеленчукская, история кафе, кафе КЧР, традиционная кухня Карачая">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cafe-tram.ru/about.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0B1A0B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Кафе ТРАМ">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://cafe-tram.ru/about.html">
 <meta property="og:title" content="О нас — Кафе ТРАМ">
 <meta property="og:description" content="11 лет готовим настоящую кавказскую кухню. Хычины на живом огне, шашлык, домашние соусы. Зеленчукская, на трассе к Архызу.">
+<meta property="og:image" content="https://cafe-tram.ru/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%85%D1%8B%D1%87%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8_opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="О нас — Кафе ТРАМ">
+<meta name="twitter:description" content="11 лет настоящей кавказской кухни в Зеленчукской. Рейтинг 5.0 ★ · 659 отзывов.">
+<meta name="twitter:image" content="https://cafe-tram.ru/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%85%D1%8B%D1%87%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8_opt.jpg">
 <meta name="geo.region" content="RU-KC">
 <meta name="geo.placename" content="Зеленчукская, Карачаево-Черкесия">
 <meta name="geo.position" content="43.855012;41.604421">
@@ -47,8 +60,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60
 .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
 .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.65; transition: opacity 0.3s, color 0.3s; }
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold-light); }
-.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--forest); background: var(--gold); padding: 10px 24px; text-decoration: none; transition: background 0.3s; }
-.nav-reserve:hover { background: var(--gold-light); }
+.nav-reserve { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--cream); background: transparent; border: 1px solid rgba(245,237,216,0.35); padding: 10px 24px; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.nav-reserve:hover { border-color: var(--gold); color: var(--gold-light); }
+.nav-reserve:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 .nav-burger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; background: none; border: none; }
 .nav-burger span { display: block; width: 24px; height: 1px; background: var(--cream); }
 .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(11,26,11,0.98); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
@@ -130,10 +144,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 60
 .about-cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: var(--forest); margin-bottom: 8px; position: relative; }
 .about-cta-sub { font-size: 14px; font-weight: 300; color: rgba(11,26,11,0.65); margin-bottom: 24px; position: relative; }
 .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
-.btn-dark { display: inline-block; padding: 14px 36px; background: var(--forest); color: var(--gold); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: background 0.3s; }
-.btn-dark:hover { background: var(--forest-rich); }
+.btn-dark { display: inline-block; padding: 14px 36px; background: transparent; border: 1px solid rgba(11,26,11,0.35); color: var(--forest); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.btn-dark:hover { border-color: var(--forest); background: rgba(11,26,11,0.08); }
+.btn-dark:active { background: var(--forest); color: var(--gold); border-color: var(--forest); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 .btn-outline { display: inline-block; padding: 13px 35px; border: 1px solid rgba(11,26,11,0.3); color: var(--forest); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: background 0.3s; }
 .btn-outline:hover { background: rgba(11,26,11,0.08); }
+.btn-gold { display: inline-block; padding: 14px 36px; background: transparent; border: 1px solid rgba(245,237,216,0.35); color: var(--cream); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+.btn-gold:hover { border-color: var(--gold); color: var(--gold-light); }
+.btn-gold:active { background: var(--gold); color: var(--forest); border-color: var(--gold); transition: background 0.12s, color 0.12s, border-color 0.12s; }
 
 /* FOOTER */
 footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgba(201,168,76,0.1); }
@@ -170,6 +188,17 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   .about-cta { padding: 40px 24px; }
 }
 
+@media (max-width: 768px) {
+  nav { padding: 18px 20px; }
+  .nav-links, .nav-reserve { display: none; }
+  .nav-burger { display: flex; }
+  .about-body { padding: 48px 20px 60px; }
+  .about-intro, .about-cuisine { grid-template-columns: 1fr; gap: 32px; }
+  .about-facts { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+  .about-photos { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .page-hero { height: 260px; }
+}
+
 @media (max-width: 480px) {
   nav { padding: 14px 16px; }
   .about-body { padding: 40px 16px 60px; }
@@ -185,17 +214,6 @@ footer { background: #060D06; padding: 52px 60px 32px; border-top: 1px solid rgb
   .cta-btns { flex-direction: column; }
   .btn-dark, .btn-outline { width: 100%; text-align: center; }
   .mobile-menu a { font-size: 26px; }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 18px 20px; }
-  .nav-links, .nav-reserve { display: none; }
-  .nav-burger { display: flex; }
-  .about-body { padding: 48px 20px 60px; }
-  .about-intro, .about-cuisine { grid-template-columns: 1fr; gap: 32px; }
-  .about-facts { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-  .about-photos { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .page-hero { height: 260px; }
 }
 
 @media (max-width: 320px) {
@@ -254,6 +272,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <a href="index.html" onclick="closeMobileMenu()">Главная</a>
   <a href="menu.html" onclick="closeMobileMenu()">Меню</a>
   <a href="about.html" onclick="closeMobileMenu()">О нас</a>
+  <a href="contacts.html#delivery" onclick="closeMobileMenu()">Доставка</a>
   <a href="contacts.html" onclick="closeMobileMenu()">Контакты</a>
 </div>
 
@@ -263,6 +282,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <li><a href="index.html">Главная</a></li>
     <li><a href="menu.html">Меню</a></li>
     <li><a href="about.html" class="active">О нас</a></li>
+    <li><a href="contacts.html#delivery">Доставка</a></li>
     <li><a href="contacts.html">Контакты</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:28px;">
@@ -300,7 +320,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       </div>
     </div>
     <div class="about-intro-img">
-      <img src="хычин с маслом_opt.jpg" alt="Хычин с маслом" loading="lazy">
+      <img src="hychin-maslo-opt.jpg" alt="Хычин с маслом" loading="lazy">
     </div>
   </div>
 
@@ -377,9 +397,9 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
       </div>
     </div>
     <div class="about-cuisine-img" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;">
-      <img src="айран-бочки.jpg" alt="Две дубовые бочки с айраном" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;grid-column:span 2;">
-      <img src="айран-бочка-3.jpg" alt="Закваска айрана" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;">
-      <img src="айран-бочка-4.jpg" alt="Внутри бочки" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;">
+      <img src="ayran-bochki.jpg" alt="Две дубовые бочки с айраном" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;grid-column:span 2;">
+      <img src="ayran-bochka-3.jpg" alt="Закваска айрана" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;">
+      <img src="ayran-bochka-4.jpg" alt="Внутри бочки" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block;">
     </div>
   </div>
 
@@ -392,7 +412,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   <!-- CUISINE SECTION -->
   <div class="about-cuisine reveal">
     <div class="about-cuisine-img">
-      <img src="фото с хычинами_opt.jpg" alt="Хычины в кафе ТРАМ" loading="lazy">
+      <img src="foto-hychin-opt.jpg" alt="Хычины в кафе ТРАМ" loading="lazy">
     </div>
     <div class="about-cuisine-text">
       <p class="about-intro-label">Кавказская кухня</p>
@@ -403,7 +423,7 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
         <p>Мы не упрощаем рецепты. Если блюдо требует три часа — значит, три часа. Вкус важнее скорости.</p>
       </div>
       <div style="margin-top:32px;">
-        <a href="menu.html" style="display:inline-block;padding:14px 36px;background:var(--gold);color:var(--forest);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background 0.3s;">Смотреть меню</a>
+        <a href="menu.html" class="btn-gold">Смотреть меню</a>
       </div>
     </div>
   </div>
@@ -414,13 +434,13 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
     <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--cream);">Готовим с душой</h2>
   </div>
   <div class="about-photos reveal">
-    <div class="about-photo"><img src="хычины на масле_opt.jpg" alt="Карачаевские хычины на масле" loading="lazy"></div>
-    <div class="about-photo"><img src="шашлык ассорти_opt.jpg" alt="Шашлык" loading="lazy"></div>
-    <div class="about-photo"><img src="говяжий стейк_opt.jpg" alt="Говяжий стейк" loading="lazy"></div>
-    <div class="about-photo"><img src="речная форель_opt.jpg" alt="Речная форель" loading="lazy"></div>
-    <div class="about-photo"><img src="блюдо по горски_opt.jpg" alt="Блюдо по-горски" loading="lazy"></div>
-    <div class="about-photo"><img src="стейк из сёмги_opt.jpg" alt="Стейк из сёмги" loading="lazy"></div>
-    <div class="about-photo"><img src="овощная нарезка_opt.jpg" alt="Овощная нарезка" loading="lazy"></div>
+    <div class="about-photo"><img src="hychiny-maslo-opt.jpg" alt="Карачаевские хычины на масле" loading="lazy"></div>
+    <div class="about-photo"><img src="shashlyk-assorti-opt.jpg" alt="Шашлык" loading="lazy"></div>
+    <div class="about-photo"><img src="govyazhiy-steyk-opt.jpg" alt="Говяжий стейк" loading="lazy"></div>
+    <div class="about-photo"><img src="rechnaya-forel-opt.jpg" alt="Речная форель" loading="lazy"></div>
+    <div class="about-photo"><img src="blyudo-gorski-opt.jpg" alt="Блюдо по-горски" loading="lazy"></div>
+    <div class="about-photo"><img src="steyk-semgi-opt.jpg" alt="Стейк из сёмги" loading="lazy"></div>
+    <div class="about-photo"><img src="ovoschnaya-opt.jpg" alt="Овощная нарезка" loading="lazy"></div>
     <div class="about-photo"><img src="bishlak-1.jpg" alt="Бышлакъ биширген — фирменное блюдо" loading="lazy"></div>
     <div class="about-photo"><img src="bishlak-2.jpg" alt="Бышлакъ биширген с тянущимся сыром" loading="lazy"></div>
   </div>
@@ -440,8 +460,9 @@ a[href^="tel:"] { cursor: pointer; -webkit-tap-highlight-color: rgba(201,168,76,
   .bishlak-serve li{font-size:15px;color:var(--cream);line-height:1.85;padding:4px 0 4px 22px;position:relative;}
   .bishlak-serve li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.7;}
   .bishlak-note{font-size:15px;color:var(--gold-light);font-style:italic;margin:18px 0 26px;}
-  .bishlak-cta{display:inline-block;padding:14px 36px;background:var(--gold);color:var(--forest);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
-  .bishlak-cta:hover{background:var(--gold-light);}
+  .bishlak-cta{display:inline-block;padding:14px 36px;background:transparent;border:1px solid rgba(245,237,216,0.35);color:var(--cream);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s,border-color 0.3s;}
+  .bishlak-cta:hover{border-color:var(--gold);color:var(--gold-light);}
+  .bishlak-cta:active{background:var(--gold);color:var(--forest);border-color:var(--gold);transition:background 0.12s,color 0.12s,border-color 0.12s;}
   @media(max-width:900px){.bishlak-feature{grid-template-columns:1fr;gap:28px;margin:70px 0;}.bishlak-photos{order:-1;}.bishlak-photos img{height:300px;}}
   </style>
   <div class="bishlak-feature">
