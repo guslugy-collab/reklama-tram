@@ -1863,6 +1863,15 @@ if (heroBg.tagName === 'VIDEO') {
   heroBg.addEventListener('playing', () => heroBg.classList.add('loaded'));
   setTimeout(() => heroBg.classList.add('loaded'), 3000);
 
+  // iOS: некоторые встроенные браузеры игнорируют playsinline и разворачивают
+  // видео в системный fullscreen-плеер — ловим сам этот момент и подменяем на картинку
+  heroBg.addEventListener('webkitbeginfullscreen', function fallbackToImg() {
+    try { heroBg.pause(); } catch (e) {}
+    heroBg.style.display = 'none';
+    heroBgImg.style.display = '';
+    heroBgImg.classList.add('loaded');
+  });
+
   // iOS Safari / энергосбережение: пробуем запустить, иначе — по первому касанию
   function tryPlayHero() {
     heroBg.muted = true;
