@@ -452,7 +452,7 @@ function submitForm(e) {
 }
 
 // Счётчик заказов (Cloudflare Worker) — не мешает брони, если недоступен
-var TRACK_URL = 'https://ЗАМЕНИТЬ-НА-АДРЕС-WORKER.workers.dev/track';
+var TRACK_URL = 'https://cafe-tram-stats.guslugy.workers.dev/track';
 function trackEvent(type) {
   try {
     fetch(TRACK_URL, {
