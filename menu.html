@@ -1171,7 +1171,21 @@ function sendOrderWhatsApp() {
   var lines = []; var total = 0;
   keys.forEach(function(k) { var i = cart[k]; lines.push(k + ' × ' + i.qty + ' = ' + (i.price * i.qty) + ' ₽'); total += i.price * i.qty; });
   var text = 'Заказ из кафе ТРАМ:\n' + lines.join('\n') + '\n\nИтого: ' + total + ' ₽\n\nМеня зовут: ';
+  trackEvent('whatsapp_order');
   window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text), '_blank');
+}
+
+// Счётчик заказов (Cloudflare Worker) — не мешает заказу, если недоступен
+var TRACK_URL = 'https://ЗАМЕНИТЬ-НА-АДРЕС-WORKER.workers.dev/track';
+function trackEvent(type) {
+  try {
+    fetch(TRACK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: type, page: location.pathname }),
+      keepalive: true
+    }).catch(function () {});
+  } catch (e) {}
 }
 
 // Добавить фото к категориям и кнопки "+" к блюдам

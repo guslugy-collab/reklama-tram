@@ -447,7 +447,21 @@ function submitForm(e) {
   if (zone) text += 'Зона: ' + zone + '\n';
   if (comment) text += 'Пожелания: ' + comment + '\n';
   text += '\nМеня зовут: ';
+  trackEvent('whatsapp_reservation');
   window.open('https://wa.me/79094963785?text=' + encodeURIComponent(text), '_blank');
+}
+
+// Счётчик заказов (Cloudflare Worker) — не мешает брони, если недоступен
+var TRACK_URL = 'https://ЗАМЕНИТЬ-НА-АДРЕС-WORKER.workers.dev/track';
+function trackEvent(type) {
+  try {
+    fetch(TRACK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: type, page: location.pathname }),
+      keepalive: true
+    }).catch(function () {});
+  } catch (e) {}
 }
 </script>
 </body>
